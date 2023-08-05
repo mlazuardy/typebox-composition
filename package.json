@@ -1,0 +1,20 @@
+{
+  "name": "@typeb/validator-workspace",
+  "version": "0.0.0",
+  "description": "Typebox validator for most modern javascript framework/library",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "typebox",
+    "nestjs",
+    "react-hook-form",
+    "react-hook-form-resolver"
+  ],
+  "author": "Michael Lazuardy",
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ]
+}
