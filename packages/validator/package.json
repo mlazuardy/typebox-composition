@@ -1,0 +1,31 @@
+{
+  "name": "@typeb/validator",
+  "version": "0.0.1",
+  "description": "typebox validator base",
+  "author": "Michael Lazuardy",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "keywords": [
+    "typebox",
+    "nestjs",
+    "react-hook-form",
+    "react-hook-form-resolver",
+    "react"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mlazuardy/typebox-validator"
+  },
+  "scripts": {
+    "build": "rimraf ./dist && tsc",
+    "test": "jest --config ./tests/jest.config.js"
+  },
+  "peerDependencies": {
+    "@sinclair/typebox": "^0.30.2"
+  },
+  "devDependencies": {
+    "@sinclair/typebox": "^0.30.2",
+    "rimraf": "^5.0.1"
+  }
+}

@@ -3,18 +3,40 @@
   "version": "0.0.0",
   "description": "Typebox validator for most modern javascript framework/library",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "author": "Michael Lazuardy",
+  "license": "MIT",
   "keywords": [
     "typebox",
     "nestjs",
     "react-hook-form",
-    "react-hook-form-resolver"
+    "react-hook-form-resolver",
+    "react"
   ],
-  "author": "Michael Lazuardy",
-  "license": "MIT",
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mlazuardy/typebox-validator"
+  },
+  "scripts": {
+    "build": "nx run-many --target=build",
+    "format": "prettier packages/**/*.ts --ignore-path ./.prettierignore --write",
+    "test": "nx run-many --target=test --output-style=stream"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.3",
+    "@typescript-eslint/eslint-plugin": "^6.2.1",
+    "@typescript-eslint/parser": "^6.2.1",
+    "eslint": "^8.46.0",
+    "eslint-config-prettier": "^8.10.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "jest": "^29.6.2",
+    "nx": "^16.6.0",
+    "nx-cloud": "^16.2.0",
+    "prettier": "^3.0.1",
+    "ts-jest": "^29.1.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.6"
+  }
 }
