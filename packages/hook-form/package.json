@@ -1,0 +1,33 @@
+{
+  "name": "@typeb/hook-form",
+  "version": "0.0.1",
+  "description": "React hook form resolver for typebox",
+  "author": "Michael Lazuardy",
+  "lisence": "MIT",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "keywords": [
+    "typebox",
+    "react-hook-form",
+    "react-hook-form-resolver",
+    "react"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mlazuardy/typebox-validator"
+  },
+  "scripts": {
+    "build": "rimraf ./dist && tsc"
+  },
+  "peerDependencies": {
+    "@typeb/validator": "^0.0.1",
+    "react-hook-form": "^7.45.4",
+    "@sinclair/typebox": "^0.30.2"
+  },
+  "devDependencies": {
+    "@typeb/validator": "^0.0.1",
+    "@types/react": "^18.2.18",
+    "react": "^18.2.0",
+    "rimraf": "^5.0.1"
+  }
+}

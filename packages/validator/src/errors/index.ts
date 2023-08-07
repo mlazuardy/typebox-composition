@@ -1,6 +1,5 @@
 import { ErrorMessage } from "../interfaces/error-message.interface";
 import { ValueError, ValueErrorType } from "@sinclair/typebox/errors";
-import { isSchemaOptional } from "../utils";
 import { ERROR_TYPE } from "../constants/error-type.constant";
 import { ErrorInfo } from "../interfaces";
 
@@ -54,6 +53,7 @@ function getStringError({ schema, type }: ValueError) {
     expected = schema.maxLength;
     return {
       messageKey: ERROR_TYPE.stringMax,
+      expected,
     };
   }
 

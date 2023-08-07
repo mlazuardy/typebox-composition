@@ -1,7 +1,7 @@
-import { ErrorMessage } from "./error-message.interface";
+import type { ErrorMessage } from "./error-message.interface";
 
 export interface TypeValidatorOptions {
-  /** default language, can still be configured on the fly when using validate */
+  /** default and/or fallback language, can still be configured on the fly when using validate method */
   lang: string;
   /**
    * your validation messages
