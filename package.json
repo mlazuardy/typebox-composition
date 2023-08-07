@@ -5,14 +5,8 @@
   "main": "index.js",
   "author": "Michael Lazuardy",
   "license": "MIT",
-  "keywords": [
-    "typebox",
-    "nestjs",
-    "react-hook-form",
-    "react-hook-form-resolver",
-    "react"
-  ],
   "workspaces": [
+    "apps/*",
     "packages/*"
   ],
   "repository": {
