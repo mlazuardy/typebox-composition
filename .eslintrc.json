@@ -1,9 +1,5 @@
 {
   "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "project": "packages/tsconfig.build.json",
-    "sourceType": "module"
-  },
   "plugins": ["@typescript-eslint/eslint-plugin"],
   "extends": [
     "plugin:@typescript-eslint/eslint-recommended",

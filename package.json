@@ -20,8 +20,10 @@
     "url": "https://github.com/mlazuardy/typebox-validator"
   },
   "scripts": {
+    "dev": "pnpm --filter \"docs\" dev",
     "build": "nx run-many --target=build",
     "format": "prettier packages/**/*.ts --ignore-path ./.prettierignore --write",
+    "format:app": "prettier apps/**/*.{ts,tsx,js} --ignore-path ./.prettierignore --write",
     "test": "nx run-many --target=test --output-style=stream"
   },
   "devDependencies": {
