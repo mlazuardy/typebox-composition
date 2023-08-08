@@ -41,14 +41,22 @@ export const Header: React.FC = () => {
       </div>
       <div className="-my-5 mr-6 sm:mr-8 md:mr-0">{/* <Search /> */}</div>
       <div className="relative flex basis-0 justify-end gap-6 sm:gap-8 md:flex-grow">
-        {/* <ThemeSelector className="relative z-10" /> */}
         <Link
+          href="/docs"
+          className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-900"
+        >
+          Docs
+        </Link>
+        {/* <ThemeSelector className="relative z-10" /> */}
+        <a
+          target="_blank"
+          rel="noreferrer"
           href="https://github.com/mlazuardy/typebox-validator"
           className="group"
           aria-label="GitHub"
         >
           <GithubIcon className="h-6 w-6 fill-slate-400 group-hover:fill-slate-500 dark:group-hover:fill-slate-300" />
-        </Link>
+        </a>
       </div>
     </header>
   );

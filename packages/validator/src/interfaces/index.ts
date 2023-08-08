@@ -1,2 +1,3 @@
-export * from "./schema-error.interface";
 export * from "./error.interface";
+export * from "./create-type.interface";
+export * from "./type-validator.interface";

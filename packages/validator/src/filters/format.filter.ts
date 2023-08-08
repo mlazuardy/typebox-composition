@@ -1,4 +1,4 @@
-import { ErrorMessage } from "../interfaces/error-message.interface";
+import type { ErrorMessage } from "../interfaces";
 
 export function formatMessage(
   message: ErrorMessage,

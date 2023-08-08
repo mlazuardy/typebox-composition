@@ -17,7 +17,7 @@
     "url": "https://github.com/mlazuardy/typebox-validator"
   },
   "scripts": {
-    "build": "rimraf ./dist && tsc"
+    "build": "tsc"
   },
   "peerDependencies": {
     "@typeb/validator": "^0.0.1",

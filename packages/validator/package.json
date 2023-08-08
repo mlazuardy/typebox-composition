@@ -18,7 +18,7 @@
     "url": "https://github.com/mlazuardy/typebox-validator"
   },
   "scripts": {
-    "build": "rimraf ./dist && tsc",
+    "build": "tsc",
     "test": "jest --config ./tests/jest.config.js"
   },
   "peerDependencies": {

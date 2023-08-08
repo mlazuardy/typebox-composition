@@ -1,7 +1,6 @@
-import { ErrorMessage } from "../interfaces/error-message.interface";
 import { ValueError, ValueErrorType } from "@sinclair/typebox/errors";
 import { ERROR_TYPE } from "../constants/error-type.constant";
-import { ErrorInfo } from "../interfaces";
+import type { ErrorInfo, ErrorMessage } from "../interfaces";
 
 export function getErrorInfo(error: ValueError): ErrorInfo {
   const kind = error.schema[Symbol.for("TypeBox.Kind") as any];

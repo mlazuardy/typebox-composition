@@ -27,5 +27,14 @@ export const validationMessages = {
 
     arrayMin: "{field} harus lebih atau sama dengan {expected} item.",
     arrayMax: "{field} harus kurang atau sama dengan {expected} item.",
+
+    string: "{field} harus string.",
+    stringEmpty: "{field} tidak boleh kosong.",
+    stringEnum: "{field} tidak valid.",
+    stringMin: "{field} harus lebih atau sama dengan {expected} karakter.",
+    stringMax: "{field} harus kurang atau sama dengan {expected} karakter.",
+
+    emailEmpty: "{field} tidak boleh kosong",
+    email: "{field} harus berupa email yang valid.",
   },
 };

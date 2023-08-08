@@ -1,5 +1,9 @@
 import { TSchema } from "@sinclair/typebox";
-import { TypeValidatorOptions } from "./interfaces/type-validator.interface";
+import {
+  TypeValidatorOptions,
+  ValidateOptions,
+  ErrorMessage,
+} from "./interfaces";
 import { Value, ValueError } from "@sinclair/typebox/value";
 import {
   formatArrayMessage,
@@ -7,7 +11,6 @@ import {
   formatNumberMessage,
   formatStringMessage,
 } from "./filters";
-import { ErrorMessage } from "./interfaces/error-message.interface";
 import { messages as defaultMessages } from "./messages";
 import { formatMessage, getErrorInfo } from "./errors";
 
@@ -24,12 +27,19 @@ export class TypeValidator {
     return lang || this.lang;
   }
 
-  validate(schema: TSchema, data: Record<string, any>) {
+  validate(
+    schema: TSchema,
+    data: Record<string, any>,
+    options?: ValidateOptions,
+  ) {
     const errors = [...Value.Errors(schema, data)];
 
-    const mappedErrors = errors.map((err) => this.getErrorMessage(err));
+    const mappedErrors = errors.map((err) =>
+      this.getErrorMessage(err, options?.lang),
+    );
 
     return {
+      data,
       errors: mappedErrors,
       // TODO: REMOVE THIS
       rawErrors: errors,

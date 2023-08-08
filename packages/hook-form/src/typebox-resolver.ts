@@ -1,6 +1,6 @@
 import type { Static, TObject, TProperties } from "@sinclair/typebox";
 import { TypeboxResolverOptions } from "./interfaces";
-import { SchemaError } from "@typeb/validator";
+import { SchemaError, ValidateOptions } from "@typeb/validator";
 import { validator as defaultValidator } from "./validator";
 import { Value } from "@sinclair/typebox/value";
 
@@ -10,7 +10,7 @@ function isObjectEmpty(data: Record<string, any>) {
 
 export function typeboxResolver<T extends TProperties>(
   schema: TObject<T>,
-  options?: TypeboxResolverOptions<T>,
+  options?: TypeboxResolverOptions<T> & ValidateOptions,
 ) {
   const validator = options?.validator || defaultValidator;
   return (data: Static<typeof schema>) => {
@@ -20,7 +20,9 @@ export function typeboxResolver<T extends TProperties>(
       data = options.beforeValidate(data) as Static<typeof schema>;
     }
 
-    const { errors } = validator.validate(schema, data);
+    console.log(options);
+
+    const { errors } = validator.validate(schema, data, options);
 
     if (errors.length) {
       const mappedErrors: Record<string, SchemaError> = {};
