@@ -75,6 +75,7 @@ export class TypeValidator {
     return payload;
   }
 
+  /** TODO: remove this */
   formatErrorMessage(error: ValueError) {
     const path = error.path.replace("/", "").split("/").join(".");
     const field = error.schema.title || path;

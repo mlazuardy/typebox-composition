@@ -1,22 +1,81 @@
 import { ValueError, ValueErrorType } from "@sinclair/typebox/errors";
 import { ERROR_TYPE } from "../constants/error-type.constant";
 import type { ErrorInfo, ErrorMessage } from "../interfaces";
+import { isEmptyOrNull } from "../utils";
 
 export function getErrorInfo(error: ValueError): ErrorInfo {
+  const value = error.value;
   const kind = error.schema[Symbol.for("TypeBox.Kind") as any];
-  if (kind === "String") {
-    return getStringError(error);
+  let formattedError: ErrorInfo = {
+    messageKey: String(error.type),
+  };
+
+  switch (kind) {
+    case "String":
+      formattedError = getStringError(error);
+      break;
+    case "Number":
+      formattedError = getNumberError(error);
+      break;
+    case "Email":
+      formattedError = {
+        messageKey: !error.value ? ERROR_TYPE.required : ERROR_TYPE.email,
+      };
+      break;
+    // this is Enum
+    case "Union":
+    case "Literal":
+      formattedError = {
+        messageKey: !value ? ERROR_TYPE.required : ERROR_TYPE.enum,
+      };
+      break;
+    default:
+      break;
   }
 
-  if (kind === "Email") {
-    return {
-      messageKey: !error.value ? ERROR_TYPE.emailEmpty : ERROR_TYPE.email,
+  if (!formattedError) {
+    formattedError = {
+      messageKey: String(error.type),
     };
   }
 
   return {
-    messageKey: String(error.type),
+    ...formattedError,
     ...error,
+  };
+}
+
+function getNumberError({ schema, type: defaultType, value }: ValueError) {
+  const type: ValueErrorType | number = defaultType;
+  let expected: any = schema.minimum;
+
+  if (type === ValueErrorType.Number) {
+    return {
+      messageKey: isEmptyOrNull(value)
+        ? ERROR_TYPE.required
+        : ERROR_TYPE.number,
+      expected,
+    };
+  }
+
+  if (type === ValueErrorType.NumberMinimum) {
+    return {
+      messageKey: ERROR_TYPE.numberMin,
+      expected,
+    };
+  }
+
+  if (type === ValueErrorType.NumberMaximum) {
+    expected = schema.maximum;
+    return {
+      messageKey: ERROR_TYPE.numberMax,
+      expected,
+    };
+  }
+
+  return {
+    messageKey: ERROR_TYPE.number,
+    expected,
   };
 }
 
@@ -28,7 +87,7 @@ function getStringError({ schema, type }: ValueError) {
     type === ValueErrorType.ObjectRequiredProperties
   ) {
     return {
-      messageKey: ERROR_TYPE.stringEmpty,
+      messageKey: ERROR_TYPE.required,
       expected,
     };
   }
@@ -37,7 +96,7 @@ function getStringError({ schema, type }: ValueError) {
     expected = schema.minLength;
     if (schema.minLength === 1 && schema.required) {
       return {
-        messageKey: ERROR_TYPE.stringEmpty,
+        messageKey: ERROR_TYPE.required,
         expected,
       };
     }
@@ -57,7 +116,7 @@ function getStringError({ schema, type }: ValueError) {
   }
 
   return {
-    messageKey: ERROR_TYPE.stringEmpty,
+    messageKey: ERROR_TYPE.required,
     expected,
   };
 }

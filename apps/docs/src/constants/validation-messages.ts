@@ -13,17 +13,17 @@ export const validationMessages = {
     stringMax:
       "the {field} field must be less or equal to {expected} characters.",
 
-    emailEmpty: "the {field} field is required",
+    emailEmpty: "the {field} field is required.",
     email: "the {field} field must be a valid email.",
 
-    number: "the {field} field must be a valid number",
-    numberMin: "the {field} field must be greater or equal to {expected}",
-    numberMax: "the {field} field must be less or equal to {expected}",
+    number: "the {field} field must be a valid number.",
+    numberMin: "the {field} field must be greater or equal to {expected}.",
+    numberMax: "the {field} field must be less or equal to {expected}.",
 
-    file: "the {field} field must be a valid file.",
+    enum: "the {field} field is invalid.",
   },
   id: {
-    required: "{field} tidak boleh kosong",
+    required: "{field} tidak boleh kosong.",
 
     arrayMin: "{field} harus lebih atau sama dengan {expected} item.",
     arrayMax: "{field} harus kurang atau sama dengan {expected} item.",
@@ -36,5 +36,11 @@ export const validationMessages = {
 
     emailEmpty: "{field} tidak boleh kosong",
     email: "{field} harus berupa email yang valid.",
+
+    number: "{field} harus berupa angka.",
+    numberMin: "{field} harus lebih atau sama dengan {expected}.",
+    numberMax: "{field} harus kurang atau sama dengan {expected}.",
+
+    enum: "{field} tidak valid.",
   },
 };

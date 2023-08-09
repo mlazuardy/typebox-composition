@@ -1,7 +1,9 @@
+import { Hero } from "@/components/home/Hero";
+
 export default function Page() {
   return (
     <div>
-      <h1>Test</h1>
+      <Hero />
     </div>
   );
 }

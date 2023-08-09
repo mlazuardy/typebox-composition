@@ -1,12 +1,10 @@
 import { getTitle } from "@/shared/shared-metadata";
-import Overview from "./Overview.mdx";
+import BasicExample from "./BasicExample.mdx";
 
 export const metadata = {
-  title: getTitle("Overview")
-}
+  title: getTitle("Basic Example"),
+};
 
 export default function Page() {
-  return (
-    <Overview />
-  );
+  return <BasicExample />;
 }

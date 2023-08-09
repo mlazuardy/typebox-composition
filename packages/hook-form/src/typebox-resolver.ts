@@ -20,8 +20,6 @@ export function typeboxResolver<T extends TProperties>(
       data = options.beforeValidate(data) as Static<typeof schema>;
     }
 
-    console.log(options);
-
     const { errors } = validator.validate(schema, data, options);
 
     if (errors.length) {

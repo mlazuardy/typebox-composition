@@ -2,7 +2,7 @@ export const docNavigation = [
   {
     title: "Introduction",
     links: [
-      { title: "Getting started", href: "/" },
+      { title: "Overview", href: "/docs" },
       { title: "Installation", href: "/docs/installation" },
     ],
   },
@@ -23,10 +23,10 @@ export const docNavigation = [
     ],
   },
   {
-    title: "Advanced guides",
+    title: "Example",
     links: [
-      { title: "Writing plugins", href: "/docs/writing-plugins" },
-      { title: "Neuralink integration", href: "/docs/neuralink-integration" },
+      { title: "Basic", href: "/docs/example/basic" },
+      { title: "Array and Object", href: "/docs/example/array-and-object" },
       { title: "Temporal paradoxes", href: "/docs/temporal-paradoxes" },
       { title: "Testing", href: "/docs/testing" },
       { title: "Compile-time caching", href: "/docs/compile-time-caching" },

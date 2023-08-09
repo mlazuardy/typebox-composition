@@ -1,5 +1,6 @@
 import { Navigation } from "@/components/layouts/Navigation";
 import { docNavigation } from "@/constants/doc-navigation";
+import { Prose } from "./Prose";
 
 export default function Layout({ children }) {
   return (
@@ -14,7 +15,9 @@ export default function Layout({ children }) {
       </div>
 
       <div className="min-w-0 max-w-2xl flex-auto px-4 py-16 lg:max-w-none lg:pl-8 lg:pr-0 xl:px-16">
-        <article>{children}</article>
+        <article>
+          <Prose>{children}</Prose>
+        </article>
       </div>
     </>
   );
