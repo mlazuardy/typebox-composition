@@ -5,3 +5,4 @@ export * from "./icon";
 export * from "./select";
 export * from "./badge";
 export * from "./radio";
+export * from "./card";

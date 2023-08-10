@@ -40,7 +40,7 @@ export const SignupForm: React.FC = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 px-4 lg:px-6 py-4 rounded-md border border-gray-300">
+    <div className="grid not-prose grid-cols-1 lg:grid-cols-12 gap-4 px-4 lg:px-6 py-4 rounded-md border border-gray-300">
       <div className="lg:col-span-8">
         <form onSubmit={handleSubmit(submit)}>
           <div className="space-y-4">
@@ -76,6 +76,7 @@ export const SignupForm: React.FC = () => {
               <RadioOptions
                 options={userOptions}
                 onChange={(v: any) => setValue("role", v.value)}
+                className="grid grid-cols-3 gap-2"
               />
               <FieldError {...registerError("role")} />
             </div>

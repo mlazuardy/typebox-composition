@@ -1,5 +1,10 @@
 import { useCallback } from "react";
-import type { FieldErrors, FieldValues, Path } from "react-hook-form";
+import type {
+  FieldError,
+  FieldErrors,
+  FieldValues,
+  Path,
+} from "react-hook-form";
 
 export function useRegisterError<T extends FieldValues = FieldValues>(
   errors: FieldErrors<T>,
@@ -8,7 +13,7 @@ export function useRegisterError<T extends FieldValues = FieldValues>(
     (name: Path<T>) => {
       return {
         name,
-        error: errors[name],
+        error: errors[name] as FieldError,
       };
     },
     [errors],

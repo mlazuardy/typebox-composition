@@ -29,6 +29,9 @@ export function getErrorInfo(error: ValueError): ErrorInfo {
         messageKey: !value ? ERROR_TYPE.required : ERROR_TYPE.enum,
       };
       break;
+    case "Array":
+      formattedError = getArrayError(error);
+      break;
     default:
       break;
   }
@@ -139,4 +142,24 @@ export function formatMessage(
   }
 
   return formattedMessage;
+}
+
+function getArrayError({ schema, type }: ValueError) {
+  if (type === ValueErrorType.ArrayMinItems) {
+    return {
+      messageKey: ERROR_TYPE.arrayMin,
+      expected: schema.minItems,
+    };
+  }
+
+  if (type === ValueErrorType.ArrayMaxItems) {
+    return {
+      messageKey: ERROR_TYPE.arrayMax,
+      expected: schema.maxItems,
+    };
+  }
+
+  return {
+    messageKey: ERROR_TYPE.array,
+  };
 }

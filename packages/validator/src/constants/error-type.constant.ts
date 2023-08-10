@@ -13,4 +13,8 @@ export const ERROR_TYPE = {
   numberMax: "numberMax",
 
   enum: "enum",
+
+  array: "array",
+  arrayMin: "arrayMin",
+  arrayMax: "arrayMax",
 };

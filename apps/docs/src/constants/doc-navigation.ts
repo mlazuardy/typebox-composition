@@ -7,7 +7,7 @@ export const docNavigation = [
     ],
   },
   {
-    title: "Core concepts",
+    title: "Guide",
     links: [
       { title: "Understanding caching", href: "/docs/understanding-caching" },
       {
@@ -23,17 +23,17 @@ export const docNavigation = [
     ],
   },
   {
+    title: "React",
+    links: [
+      { title: "Basic", href: "/docs/react" },
+      { title: "React Hook Form Resolver", href: "/docs/example/basic" },
+    ],
+  },
+  {
     title: "Example",
     links: [
       { title: "Basic", href: "/docs/example/basic" },
       { title: "Array and Object", href: "/docs/example/array-and-object" },
-      { title: "Temporal paradoxes", href: "/docs/temporal-paradoxes" },
-      { title: "Testing", href: "/docs/testing" },
-      { title: "Compile-time caching", href: "/docs/compile-time-caching" },
-      {
-        title: "Predictive data generation",
-        href: "/docs/predictive-data-generation",
-      },
     ],
   },
   {
