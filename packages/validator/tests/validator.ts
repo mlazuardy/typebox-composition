@@ -1,6 +1,6 @@
-import { TypeValidator, messages } from "../src";
+import { TypeComposition, messages } from "../src";
 
-export const validator = new TypeValidator({
+export const validator = new TypeComposition({
   lang: "en",
   messages: {
     en: {

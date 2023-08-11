@@ -31,12 +31,12 @@ export const Hero: React.FC = () => {
               >
                 Get started
               </Link>
-              <a
-                href="#"
+              <Link
+                href="/docs/installation"
                 className="text-sm font-semibold leading-6 text-gray-900"
               >
                 Install <span aria-hidden="true">→</span>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

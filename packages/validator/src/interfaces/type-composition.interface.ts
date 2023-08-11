@@ -1,6 +1,6 @@
 import type { ErrorMessage } from "./error.interface";
 
-export interface TypeValidatorOptions {
+export interface TypeCompositionOptions {
   /** default and/or fallback language, can still be configured on the fly when using validate method */
   lang: string;
   /**

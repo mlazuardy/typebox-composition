@@ -1,13 +1,13 @@
 import { validationMessages } from "@/constants/validation-messages";
 import { TObject, TProperties } from "@sinclair/typebox";
 import { typeboxResolver } from "@typeb/hook-form";
-import { TypeValidator } from "@typeb/composition";
+import { TypeComposition } from "@typeb/composition";
 
 type MyResolverOptions = {
   lang?: string;
 };
 
-export const validator = new TypeValidator({
+export const validator = new TypeComposition({
   lang: "en",
   messages: validationMessages,
 });
@@ -15,7 +15,7 @@ export const validator = new TypeValidator({
 /**
  *
  */
-export const plainValidator = new TypeValidator({
+export const plainValidator = new TypeComposition({
   lang: "en",
   messages: {
     en: {},

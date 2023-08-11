@@ -1,18 +1,18 @@
 import { TSchema } from "@sinclair/typebox";
 import {
-  TypeValidatorOptions,
   ValidateOptions,
   ErrorMessage,
+  TypeCompositionOptions,
 } from "./interfaces";
 import { Value, ValueError } from "@sinclair/typebox/value";
 import { messages as defaultMessages } from "./messages";
 import { formatMessage, getErrorInfo } from "./errors";
 
-export class TypeValidator {
+export class TypeComposition {
   private lang = "en";
   private messages: Record<string, Record<string, ErrorMessage>>;
 
-  constructor(options: TypeValidatorOptions) {
+  constructor(options: TypeCompositionOptions) {
     this.lang = options.lang;
     this.messages = options.messages || defaultMessages;
   }
