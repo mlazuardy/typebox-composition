@@ -18,7 +18,7 @@ export const Label: CFC<Props> = ({
   return (
     <label
       className={classNames(
-        "block text-sm font-medium leading-6 text-gray-900",
+        "block text-sm font-medium leading-6 text-gray-900 dark:text-white",
         !noMargin && "mb-1",
         className,
       )}

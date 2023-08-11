@@ -13,7 +13,7 @@ export const CardHeader: React.FC<DivProps> = ({ children, className }) => {
   return (
     <div
       className={classNames(
-        "px-4 lg:px-6 py-4 border-b border-gray-300 dark:border-slate-600",
+        "px-4 lg:px-6 py-4 border-b border-gray-300 dark:border-gray-600",
         className,
       )}
     >
@@ -26,7 +26,7 @@ export const CardFooter: React.FC<DivProps> = ({ children, className }) => {
   return (
     <div
       className={classNames(
-        "px-4 lg:px-6 py-3 border-t border-gray-300 dark:border-slate-600",
+        "px-4 lg:px-6 py-3 border-t border-gray-300 dark:border-gray-600",
         className,
       )}
     >
@@ -45,7 +45,7 @@ export const Card: CardComponent = ({ children, className }) => {
   return (
     <div
       className={classNames(
-        "bg-white dark:bg-slate-900 border border-gray-300 dark:border-slate-600 rounded-md",
+        "bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-600 rounded-md",
         className,
       )}
     >

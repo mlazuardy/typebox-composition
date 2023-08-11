@@ -30,11 +30,11 @@ const userOptions = [
 
 export const SignupForm: React.FC = () => {
   const [lang, setLang] = useState("en");
-  const { handleSubmit, register, formState, setValue, watch } = useForm({
+  const { handleSubmit, register, formState, setValue } = useForm({
     resolver: myResolver(schema, { lang }),
     defaultValues: {
       termsAccept: false,
-    }
+    },
   });
   const registerError = useRegisterError(formState.errors);
 
