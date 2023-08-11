@@ -2,6 +2,14 @@
   @apply m-0 rounded-none;
 }
 
+.prose p code::before, .prose p code::after {
+  content: none;
+}
+
+.prose p code {
+  @apply bg-gray-50 px-2 py-1 rounded-md;
+}
+
 pre[class*='language-'] {
   color: theme('colors.slate.50');
 }

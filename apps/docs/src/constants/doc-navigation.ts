@@ -9,7 +9,7 @@ export const docNavigation = [
   {
     title: "Guide",
     links: [
-      { title: "Understanding caching", href: "/docs/understanding-caching" },
+      { title: "Basic Usage", href: "/docs/basic-usage" },
       {
         title: "Predicting user behavior",
         href: "/docs/predicting-user-behavior",
@@ -25,7 +25,7 @@ export const docNavigation = [
   {
     title: "React",
     links: [
-      { title: "Basic", href: "/docs/react" },
+      { title: "Basic Usage", href: "/docs/react" },
       { title: "React Hook Form", href: "/docs/react/hook-form" },
     ],
   },
@@ -36,15 +36,15 @@ export const docNavigation = [
       { title: "Array and Object", href: "/docs/example/array-and-object" },
     ],
   },
-  {
-    title: "API reference",
-    links: [
-      { title: "CacheAdvance.predict()", href: "/docs/cacheadvance-predict" },
-      { title: "CacheAdvance.flush()", href: "/docs/cacheadvance-flush" },
-      { title: "CacheAdvance.revert()", href: "/docs/cacheadvance-revert" },
-      { title: "CacheAdvance.regret()", href: "/docs/cacheadvance-regret" },
-    ],
-  },
+  // {
+  //   title: "API reference",
+  //   links: [
+  //     { title: "CacheAdvance.predict()", href: "/docs/cacheadvance-predict" },
+  //     { title: "CacheAdvance.flush()", href: "/docs/cacheadvance-flush" },
+  //     { title: "CacheAdvance.revert()", href: "/docs/cacheadvance-revert" },
+  //     { title: "CacheAdvance.regret()", href: "/docs/cacheadvance-regret" },
+  //   ],
+  // },
   {
     title: "Contributing",
     links: [
