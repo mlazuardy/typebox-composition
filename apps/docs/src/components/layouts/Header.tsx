@@ -51,7 +51,7 @@ export const Header: React.FC = () => {
         <a
           target="_blank"
           rel="noreferrer"
-          href="https://github.com/mlazuardy/typebox-validator"
+          href="https://github.com/mlazuardy/typebox-composition"
           className="group"
           aria-label="GitHub"
         >
