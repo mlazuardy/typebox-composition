@@ -26,7 +26,7 @@ export const CardFooter: React.FC<DivProps> = ({ children, className }) => {
   return (
     <div
       className={classNames(
-        "px-4 lg:px-6 py-4 border-t border-gray-300 dark:border-slate-600",
+        "px-4 lg:px-6 py-3 border-t border-gray-300 dark:border-slate-600",
         className,
       )}
     >

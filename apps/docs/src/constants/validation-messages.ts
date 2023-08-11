@@ -2,12 +2,12 @@ export const validationMessages = {
   en: {
     required: "the {field} field is required.",
 
+    array: "the {field} must be an array.",
     arrayMin: "the {field} field must be more or equal to {expected} items.",
     arrayMax: "the {field} field must be less or equal to {expected} items.",
 
     string: "the {field} field must be a string",
     stringEmpty: "the {field} field is required.",
-    stringEnum: "the {field} field is invalid.",
     stringMin:
       "the {field} field must be greater or equal to {expected} characters.",
     stringMax:
@@ -25,12 +25,12 @@ export const validationMessages = {
   id: {
     required: "{field} tidak boleh kosong.",
 
+    array: "{field} harus array.",
     arrayMin: "{field} harus lebih atau sama dengan {expected} item.",
     arrayMax: "{field} harus kurang atau sama dengan {expected} item.",
 
     string: "{field} harus string.",
     stringEmpty: "{field} tidak boleh kosong.",
-    stringEnum: "{field} tidak valid.",
     stringMin: "{field} harus lebih atau sama dengan {expected} karakter.",
     stringMax: "{field} harus kurang atau sama dengan {expected} karakter.",
 

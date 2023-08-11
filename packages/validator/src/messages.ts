@@ -7,7 +7,6 @@ export const messages: Record<string, any> = {
 
     string: "the {field} field must be a string",
     stringEmpty: "the {field} field is required.",
-    stringEnum: "the {field} field is invalid.",
     stringMin:
       "the {field} field must be greater or equal to {expected} characters.",
     stringMax:

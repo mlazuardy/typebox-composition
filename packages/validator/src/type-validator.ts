@@ -5,12 +5,6 @@ import {
   ErrorMessage,
 } from "./interfaces";
 import { Value, ValueError } from "@sinclair/typebox/value";
-import {
-  formatArrayMessage,
-  formatEmailMessage,
-  formatNumberMessage,
-  formatStringMessage,
-} from "./filters";
 import { messages as defaultMessages } from "./messages";
 import { formatMessage, getErrorInfo } from "./errors";
 
@@ -73,30 +67,5 @@ export class TypeValidator {
     }
 
     return payload;
-  }
-
-  /** TODO: remove this */
-  formatErrorMessage(error: ValueError) {
-    const path = error.path.replace("/", "").split("/").join(".");
-    const field = error.schema.title || path;
-    const kind = error.schema[Symbol.for("TypeBox.Kind") as any];
-
-    if (error.schema.type === "string") {
-      return formatStringMessage(field, error);
-    }
-
-    if (error.schema.type === "number") {
-      return formatNumberMessage(field, error);
-    }
-
-    if (error.schema.type === "array") {
-      return formatArrayMessage(field, error);
-    }
-
-    if (kind === "Email") {
-      return formatEmailMessage(field, error);
-    }
-
-    return error.message;
   }
 }

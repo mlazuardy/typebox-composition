@@ -20,7 +20,7 @@ export const Prose: CFC<{ className?: string }> = ({ className, children }) => {
         // hr
         "dark:prose-hr:border-slate-800",
         // blockquote,
-        "prose-p:before:content-none prose-blockquote:not-italic"
+        "prose-p:before:content-none prose-blockquote:not-italic",
       )}
     >
       {children}

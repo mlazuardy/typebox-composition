@@ -26,7 +26,7 @@ export const docNavigation = [
     title: "React",
     links: [
       { title: "Basic", href: "/docs/react" },
-      { title: "React Hook Form Resolver", href: "/docs/example/basic" },
+      { title: "React Hook Form", href: "/docs/react/hook-form" },
     ],
   },
   {

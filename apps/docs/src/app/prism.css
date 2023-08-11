@@ -1,3 +1,7 @@
+.example-code pre {
+  @apply m-0 rounded-none;
+}
+
 pre[class*='language-'] {
   color: theme('colors.slate.50');
 }
@@ -6,9 +10,12 @@ pre[class*='language-'] {
 .token.class-name,
 .token.selector,
 .token.selector .class,
-.token.selector.class,
+.token.selector.class {
+  color: theme('colors.pink.400')!important;
+}
+
 .token.function {
-  color: theme('colors.yellow.400');
+  @apply text-indigo-600;
 }
 
 .token.attr-name,
