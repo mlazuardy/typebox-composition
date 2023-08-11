@@ -1,4 +1,4 @@
-# Typebox Validator
+# Typebox Composition
 
 ## Installation
 ```

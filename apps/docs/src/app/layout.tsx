@@ -7,7 +7,7 @@ import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Typebox Validator | Pre-formatted validation",
+  title: "Typebox Composition | Pre-formatted validation",
   description: "Pre-formatted validation using typebox under the hood",
 };
 

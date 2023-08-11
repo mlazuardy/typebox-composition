@@ -1,7 +1,7 @@
 {
   "name": "@typeb/composition",
   "version": "0.0.1",
-  "description": "typebox validator base",
+  "description": "typebox composition base",
   "author": "Michael Lazuardy",
   "license": "MIT",
   "main": "./dist/index.js",

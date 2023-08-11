@@ -1,2 +1,2 @@
-# Typebox Validator Docs
-Typebox validator documentation and example
+# Typebox Composition Docs
+Typebox Composition documentation and example

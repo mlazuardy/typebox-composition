@@ -1,4 +1,4 @@
-# Typebox Validator
+# Typebox Composition
 A pre-formatted validation using Typebox under the hood.
 
 ## NOT READY FOR PRODUCTION, DOCS NOT READY YET.

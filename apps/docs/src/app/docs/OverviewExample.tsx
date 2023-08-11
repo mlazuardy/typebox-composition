@@ -49,7 +49,7 @@ const FormComponent: React.FC<{ plain?: boolean }> = ({ plain = false }) => {
       <form className="space-y-4" onSubmit={handleSubmit(submit)}>
         <div>
           <h4 className="my-0">
-            {plain ? "Default Typebox Messages" : "With Typebox Validator"}
+            {plain ? "Default Typebox Messages" : "With Typebox Composition"}
           </h4>
         </div>
 

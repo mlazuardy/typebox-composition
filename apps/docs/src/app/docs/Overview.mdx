@@ -8,21 +8,21 @@ TypeBox is a runtime type builder that creates in-memory JSON Schema objects tha
 
 The library is designed to enable JSON schema to compose with the same flexibility as TypeScript's type system. It can be used as a simple tool to build up complex schemas or integrated into REST or RPC services to help validate data received over the wire.
 
-## Typebox Validator
+## Typebox Composition
 Typebox is quite fast and maybe the fastest `JSON` schema validation in javascript world.
 But it (for now) does not provide custom `error messages` and internationalization (i18n).
 
 We can still customize the error by filtering `Kind` or `type` return from its `ValueError` value.
 However you will end up writing this custom messages over and again if you use typebox in many projects.
-So that's why `Typebox Validator` created to end it all.
+So that's why `Typebox Composition` created to end it all.
 
 here is the different between typebox default messages and our typebox-validator:
 <OverviewExample />
 
 ## Limitations
-`TypeboxValidator` aimed to validate data defined inside `Type.Object`.
+`Typebox Composition` aimed to validate data defined inside `Type.Object`.
 
-although `Typebox Validator` already format the messages,
+although `Typebox Compositon` already format the messages,
 we only pre-formatted the messages only for Standard Types because for now this package focuses on validating data that is usually live within form input (browser/client) or API.
 
 here is the list Standard Types we covered:

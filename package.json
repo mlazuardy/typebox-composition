@@ -1,7 +1,7 @@
 {
   "name": "@typeb/composition-workspace",
   "version": "0.0.0",
-  "description": "Typebox validator for most modern javascript framework/library",
+  "description": "Pre-formatted typebox validation for most modern javascript framework/library",
   "main": "index.js",
   "author": "Michael Lazuardy",
   "license": "MIT",
