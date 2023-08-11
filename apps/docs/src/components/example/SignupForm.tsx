@@ -16,7 +16,6 @@ enum Role {
 const schema = Type.Object({
   firstName: Type.String({ title: "first name", minLength: 8, maxLength: 10 }),
   lastName: Type.String({ minLength: 8, maxLength: 10 }),
-  fullName: Type.String({ minLength: 8, maxLength: 10 }),
   age: Type.Number({ minimum: 18 }),
   bio: Type.Optional(Type.String({ minLength: 50 })),
   role: Type.Enum(Role),
