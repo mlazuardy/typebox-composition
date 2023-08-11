@@ -23,6 +23,13 @@ export const docNavigation = [
     ],
   },
   {
+    title: "Custom Types",
+    links: [
+      { title: "Overview", href: "/docs/custom-types" },
+      { title: "Available Custom Types", href: "/docs/custom-types/available" },
+    ],
+  },
+  {
     title: "React",
     links: [
       { title: "Basic Usage", href: "/docs/react" },
