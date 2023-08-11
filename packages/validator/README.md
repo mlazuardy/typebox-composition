@@ -2,11 +2,11 @@
 
 ## Installation
 ```
-npm install @sinclair/typebox @typeb/validator
+npm install @sinclair/typebox @typeb/composition
 
-yarn add @sinclair/typebox @typeb/validator
+yarn add @sinclair/typebox @typeb/composition
 
-pnpm add @sinclair/typebox @typeb/validator
+pnpm add @sinclair/typebox @typeb/composition
 ```
 
 ## Usage

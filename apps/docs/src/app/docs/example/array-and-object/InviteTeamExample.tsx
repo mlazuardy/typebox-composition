@@ -6,7 +6,7 @@ import { Button, Card, Input, Label, Select } from "@/components/ui";
 import { useRegisterError } from "@/hooks/useRegisterError";
 import { myResolver } from "@/plugins/validator.plugin";
 import { Type } from "@sinclair/typebox";
-import { TypeEmail } from "@typeb/validator";
+import { TypeEmail } from "@typeb/composition";
 import { useFieldArray, useForm } from "react-hook-form";
 
 enum Role {
@@ -26,7 +26,7 @@ const schema = Type.Object({
 
 const code = `
 import { Type } from "@sinclair/typebox";
-import { TypeEmail } from "@typeb/validator";
+import { TypeEmail } from "@typeb/composition";
 
 enum Role {
   MEMBER = "MEMBER",

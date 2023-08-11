@@ -1,5 +1,5 @@
 {
-  "name": "@typeb/validator-workspace",
+  "name": "@typeb/composition-workspace",
   "version": "0.0.0",
   "description": "Typebox validator for most modern javascript framework/library",
   "main": "index.js",

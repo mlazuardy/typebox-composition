@@ -4,7 +4,7 @@ import { FieldError } from "@/components/error/FieldError";
 import { Button, Input, Label, RadioOptions } from "@/components/ui";
 import { useRegisterError } from "@/hooks/useRegisterError";
 import { myPlainResolver, myResolver } from "@/plugins/validator.plugin";
-import { Type } from "@typeb/validator";
+import { Type } from "@typeb/composition";
 import { useForm } from "react-hook-form";
 
 enum Gender {

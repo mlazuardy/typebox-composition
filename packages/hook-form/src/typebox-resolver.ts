@@ -1,6 +1,6 @@
 import type { Static, TObject, TProperties } from "@sinclair/typebox";
 import { TypeboxResolverOptions } from "./interfaces";
-import { SchemaError, ValidateOptions } from "@typeb/validator";
+import { SchemaError, ValidateOptions } from "@typeb/composition";
 import { validator as defaultValidator } from "./validator";
 import { Value } from "@sinclair/typebox/value";
 

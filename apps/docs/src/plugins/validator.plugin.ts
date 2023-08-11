@@ -1,7 +1,7 @@
 import { validationMessages } from "@/constants/validation-messages";
 import { TObject, TProperties } from "@sinclair/typebox";
 import { typeboxResolver } from "@typeb/hook-form";
-import { TypeValidator } from "@typeb/validator";
+import { TypeValidator } from "@typeb/composition";
 
 type MyResolverOptions = {
   lang?: string;

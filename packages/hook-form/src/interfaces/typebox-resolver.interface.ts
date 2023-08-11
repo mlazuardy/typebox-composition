@@ -1,5 +1,5 @@
 import type { Static, TObject, TProperties } from "@sinclair/typebox";
-import type { TypeValidator } from "@typeb/validator";
+import type { TypeValidator } from "@typeb/composition";
 
 export interface TypeboxResolverOptions<T extends TProperties> {
   validator?: TypeValidator;

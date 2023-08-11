@@ -5,16 +5,16 @@ Make sure you have an up-to-date NodeJS version (prefer 18++) installed on your 
 
 Start by installing our package and its peerDepedencies
 ```bash
-npm install @sinclair/typebox @typeb/validator
+npm install @sinclair/typebox @typeb/composition
 
-yarn add @sinclair/typebox @typeb/validator
+yarn add @sinclair/typebox @typeb/composition
 
-pnpm add @sinclair/typebox @typeb/validator
+pnpm add @sinclair/typebox @typeb/composition
 ```
 
 After that create `TypeValidator` instance
 ```typescript
-import { TypeValidator } from "@typeb/validator";
+import { TypeValidator } from "@typeb/composition";
 
 export const validator = new TypeValidator({ lang: "en" });
 ```
