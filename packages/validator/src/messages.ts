@@ -12,17 +12,12 @@ export const messages: Record<string, any> = {
     stringMax:
       "the {field} field must be less or equal to {expected} characters.",
 
-    emailEmpty: "the {field} field is required",
     email: "the {field} field must be a valid email.",
 
     number: "the {field} field must be a valid number",
     numberMin: "the {field} field must be greater or equal to {expected}",
     numberMax: "the {field} field must be less or equal to {expected}",
 
-    file: "the {field} field must be a valid file.",
+    boolean: "the {field} must be true or false",
   },
 };
-
-export function getMessages(lang = "en") {
-  return messages[lang];
-}

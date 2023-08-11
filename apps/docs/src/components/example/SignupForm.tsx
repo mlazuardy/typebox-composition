@@ -17,8 +17,9 @@ const schema = Type.Object({
   firstName: Type.String({ title: "first name", minLength: 8, maxLength: 10 }),
   lastName: Type.String({ minLength: 8, maxLength: 10 }),
   age: Type.Number({ minimum: 18 }),
-  bio: Type.Optional(Type.String({ minLength: 50 })),
   role: Type.Enum(Role),
+  bio: Type.Optional(Type.String({ minLength: 50 })),
+  termsAccept: Type.Boolean({ title: "terms" }),
 });
 
 const userOptions = [
@@ -29,8 +30,11 @@ const userOptions = [
 
 export const SignupForm: React.FC = () => {
   const [lang, setLang] = useState("en");
-  const { handleSubmit, register, formState, setValue } = useForm({
+  const { handleSubmit, register, formState, setValue, watch } = useForm({
     resolver: myResolver(schema, { lang }),
+    defaultValues: {
+      termsAccept: false,
+    }
   });
   const registerError = useRegisterError(formState.errors);
 
@@ -94,6 +98,26 @@ export const SignupForm: React.FC = () => {
                 it to undefined.
               </p>
               <FieldError {...registerError("bio")} />
+            </div>
+
+            <div>
+              <div className="flex items-center">
+                <input
+                  id="remember-me"
+                  type="checkbox"
+                  className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                  {...register("termsAccept")}
+                />
+                <label
+                  htmlFor="remember-me"
+                  className="ml-3 block text-sm leading-6 text-gray-900 select-none"
+                >
+                  By registering account, you agree that you will received
+                  unlimited money.
+                </label>
+              </div>
+
+              <FieldError {...registerError("termsAccept")} />
             </div>
 
             <div>

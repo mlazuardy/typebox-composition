@@ -32,6 +32,10 @@ export function getErrorInfo(error: ValueError): ErrorInfo {
     case "Array":
       formattedError = getArrayError(error);
       break;
+
+    case "Boolean":
+      formattedError = getBooleanError(error);
+      break;
     default:
       break;
   }
@@ -161,5 +165,11 @@ function getArrayError({ schema, type }: ValueError) {
 
   return {
     messageKey: ERROR_TYPE.array,
+  };
+}
+
+function getBooleanError({ value }: ValueError) {
+  return {
+    messageKey: isEmptyOrNull(value) ? ERROR_TYPE.required : ERROR_TYPE.boolean,
   };
 }

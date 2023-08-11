@@ -6,7 +6,6 @@ export const ERROR_TYPE = {
   stringMax: "stringMax",
 
   email: "email",
-  emailEmpty: "emailEmpty",
 
   number: "number",
   numberMin: "numberMin",
@@ -17,4 +16,6 @@ export const ERROR_TYPE = {
   array: "array",
   arrayMin: "arrayMin",
   arrayMax: "arrayMax",
+
+  boolean: "boolean",
 };
