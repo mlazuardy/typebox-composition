@@ -16,7 +16,7 @@ export const FieldError: React.FC<Props> = ({ error, name }) => {
   }
 
   return (
-    <p className="mt-1 text-red-600 dark:text-red-500 text-xs font-medium">
+    <p className="mt-1 text-red-500 dark:text-red-400 text-xs font-medium">
       {message}
     </p>
   );

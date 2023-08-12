@@ -14,12 +14,10 @@ export const docNavigation = [
         title: "Predicting user behavior",
         href: "/docs/predicting-user-behavior",
       },
-      { title: "Basics of time-travel", href: "/docs/basics-of-time-travel" },
       {
-        title: "Introduction to string theory",
-        href: "/docs/introduction-to-string-theory",
+        title: "Internationalization (i18n)",
+        href: "/docs/internationalization",
       },
-      { title: "The butterfly effect", href: "/docs/the-butterfly-effect" },
     ],
   },
   {
@@ -27,6 +25,7 @@ export const docNavigation = [
     links: [
       { title: "Overview", href: "/docs/custom-types" },
       { title: "Available Custom Types", href: "/docs/custom-types/available" },
+      { title: "Creating Custom Types", href: "/docs/custom-types/creating" },
     ],
   },
   {
