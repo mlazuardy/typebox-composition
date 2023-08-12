@@ -11,10 +11,6 @@ export const docNavigation = [
     links: [
       { title: "Basic Usage", href: "/docs/basic-usage" },
       {
-        title: "Predicting user behavior",
-        href: "/docs/predicting-user-behavior",
-      },
-      {
         title: "Internationalization (i18n)",
         href: "/docs/internationalization",
       },
@@ -51,12 +47,12 @@ export const docNavigation = [
   //     { title: "CacheAdvance.regret()", href: "/docs/cacheadvance-regret" },
   //   ],
   // },
-  {
-    title: "Contributing",
-    links: [
-      { title: "How to contribute", href: "/docs/how-to-contribute" },
-      { title: "Architecture guide", href: "/docs/architecture-guide" },
-      { title: "Design principles", href: "/docs/design-principles" },
-    ],
-  },
+  // {
+  //   title: "Contributing",
+  //   links: [
+  //     { title: "How to contribute", href: "/docs/how-to-contribute" },
+  //     { title: "Architecture guide", href: "/docs/architecture-guide" },
+  //     { title: "Design principles", href: "/docs/design-principles" },
+  //   ],
+  // },
 ];

@@ -15,6 +15,15 @@ export interface TypeCompositionOptions {
    * }
    */
   messages?: Record<string, Record<string, ErrorMessage>>;
+
+  /**
+   * if true, we will try to format the title inside message property based on your field
+   * the format covered camelCase and snakeCase field
+   * e.g firstName or first_name will turned into `first name`
+   * if you defined `title` options inside Typebox Type or your cutom type e.g Type.String({ title: "my first name" })
+   * the title options will be prioritized.
+   */
+  formatTitle?: boolean;
 }
 
 export interface ValidateOptions {

@@ -3,6 +3,7 @@ import {
   ValidateOptions,
   ErrorMessage,
   TypeCompositionOptions,
+  SchemaError,
 } from "./interfaces";
 import { Value, ValueError } from "@sinclair/typebox/value";
 import { messages as defaultMessages } from "./messages";
@@ -48,11 +49,11 @@ export class TypeComposition {
     const { messageKey, expected, ...rest } = getErrorInfo(error);
     const messageVal = messages[messageKey];
 
-    const payload: Record<string, any> = {
+    const payload: SchemaError = {
       field,
       kind,
-      type: error.schema.type || error.type,
       path: error.path,
+      message: "",
     };
 
     if (!messageVal) {

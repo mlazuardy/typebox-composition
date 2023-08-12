@@ -70,60 +70,53 @@ const InviteTeamForm: React.FC = () => {
   };
 
   return (
-    <div className="py-4 lg:py-8 bg-gray-50 not-prose">
-      <div className="container px-4 mx-auto">
-        <form onSubmit={handleSubmit(invite)}>
-          <Card className="overflow-hidden">
-            <Card.Header className="bg-gray-50">
-              <h3>Invite new members by email address</h3>
-              <FieldError {...registerError("teams")} />
-            </Card.Header>
-            <Card.Body className="space-y-4">
-              {fields.map((field, index) => (
-                <div
-                  className="grid grid-cols-1 lg:grid-cols-2 gap-4"
-                  key={index}
-                >
-                  <div>
-                    <Label>Email</Label>
-                    <Input
-                      {...register(`teams.${index}.email`)}
-                      placeholder="email@address.com"
-                    />
-                    <FieldError {...registerError(`teams.${index}.email`)} />
-                  </div>
-
-                  <div>
-                    <Label>Role</Label>
-                    <Select {...register(`teams.${index}.role`)}>
-                      <option value="MEMBER">Member</option>
-                      <option value="OWNER">Owner</option>
-                      <option value="INVALID">Invalid Role</option>
-                    </Select>
-                    <FieldError {...registerError(`teams.${index}.role`)} />
-                  </div>
-                </div>
-              ))}
+    <form onSubmit={handleSubmit(invite)}>
+      <Card className="overflow-hidden">
+        <Card.Header>
+          <h3>Invite new members by email address</h3>
+          <FieldError {...registerError("teams")} />
+        </Card.Header>
+        <Card.Body className="space-y-4">
+          {fields.map((field, index) => (
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4" key={index}>
+              <div>
+                <Label>Email</Label>
+                <Input
+                  {...register(`teams.${index}.email`)}
+                  placeholder="email@address.com"
+                />
+                <FieldError {...registerError(`teams.${index}.email`)} />
+              </div>
 
               <div>
-                <button
-                  type="button"
-                  className="border border-gray-300 rounded-md px-3 py-1.5 text-sm font-medium"
-                  onClick={() => append(defaultTeam)}
-                >
-                  + Add More
-                </button>
+                <Label>Role</Label>
+                <Select {...register(`teams.${index}.role`)}>
+                  <option value="MEMBER">Member</option>
+                  <option value="OWNER">Owner</option>
+                  <option value="INVALID">Invalid Role</option>
+                </Select>
+                <FieldError {...registerError(`teams.${index}.role`)} />
               </div>
-            </Card.Body>
-            <Card.Footer className="flex justify-end">
-              <Button type="submit" className="min-w-[120px]">
-                Invite
-              </Button>
-            </Card.Footer>
-          </Card>
-        </form>
-      </div>
-    </div>
+            </div>
+          ))}
+
+          <div>
+            <button
+              type="button"
+              className="border border-gray-300 rounded-md px-3 py-1.5 text-sm font-medium"
+              onClick={() => append(defaultTeam)}
+            >
+              + Add More
+            </button>
+          </div>
+        </Card.Body>
+        <Card.Footer className="flex justify-end">
+          <Button type="submit" className="min-w-[120px]">
+            Invite
+          </Button>
+        </Card.Footer>
+      </Card>
+    </form>
   );
 };
 

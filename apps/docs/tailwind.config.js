@@ -6,7 +6,11 @@ module.exports = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      minWidth: {
+        btn: "120px",
+      },
+    },
   },
   darkMode: "class",
   plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography")],

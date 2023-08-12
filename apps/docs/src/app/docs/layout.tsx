@@ -1,6 +1,7 @@
 import { Navigation } from "@/components/layouts/Navigation";
 import { docNavigation } from "@/constants/doc-navigation";
 import { Prose } from "./Prose";
+import { DocPagination } from "./DocPagination";
 
 export default function Layout({ children }) {
   return (
@@ -18,6 +19,7 @@ export default function Layout({ children }) {
         <article>
           <Prose>{children}</Prose>
         </article>
+        <DocPagination />
       </div>
     </>
   );

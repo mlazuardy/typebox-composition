@@ -1,1 +1,143 @@
+import { PlainBasicUsageExample } from "@/components/example/PlainBasicUsageExample";
+
 # Basic Usage
+
+As we mentioned in the [Overview](/docs), type composition aimed to validate incoming data either from form input or within your HTTP Requests.
+
+## Writing Schema / Rules
+
+First, make sure you have create an `TypeComposition` instance that we mentioned in the [Installation Guide](/docs/installation).
+
+```ts
+import { TypeComposition } from "@typeb/composition";
+
+export const validator = new TypeComposition({ lang: "en" });
+```
+
+Then create a schema / rules.
+
+```ts
+import { Type } from "@sinclair/typebox";
+
+const schema = Type.Object({
+  name: Type.String({ minLength: 8, maxLength: 50 }),
+});
+```
+
+After that you can validate the using this schema from your incoming data using `.validate` method
+
+```ts
+import { type Static } from "@sinclair/typebox";
+// assumed you passed incoming data within this function
+export function createUser(data: Static<typeof schema>) {
+  const { errors } = validator.validate(schema, data);
+
+  if (errors.length) {
+    // errors will return Array-object with pre-formatted messages based on your `TypeComposition` options
+  }
+
+  // validation passed, creating user.
+}
+```
+
+As you can see in the example above, if validation fails, we can check if `errors.length` is more than one.
+- If you're using validation within backend like express, fastify etc. you can send the errors as well as error status `422`.
+- in Browser / client like React, Vue etc. You can update your errors state and conditionally return the error component / tag.
+
+If validation fails, the `errors` will return like this:
+
+```json
+[
+  {
+    field: "name",
+    kind: "String",
+    path: "/name",
+    message: "the name field is required.",
+  },
+]
+```
+
+| Property  | Description |
+| ------------- | ------------- |
+| field  | Field that you've defined in your schema  |
+| kind  | Typebox or custom type kind |
+| path  | Typebox path, if schema is nested it will return /path/:nestedPath/:and so on  |
+| message | pre-formatted message, or plain message if we dont covered the Type |
+
+## Working with Error Messages
+After validating the schema and if validation fails, it will be up to you how to display the error messages based on environment or your Library / Framework
+
+if validation live within your browser / client side library or framework like React or Vue.
+You may set the `errors` as a `state` or `reactive` variables and conditionally check if `field` exists inside the `errors`
+
+For example using React:
+
+```tsx
+import { ChangeEvent, FormEvent, useState } from "react";
+import { SchemaError, TypeComposition } from "@typeb/composition";
+import { Static } from "@sinclair/typebox";
+
+// this is just an example, you may create a singleton instance for this
+const validator = new TypeComposition({ lang: "en" });
+const schema = Type.Object({
+  name: Type.String({ minLength: 8, maxLength: 50 }),
+});
+
+export const YourComponentForm = () => {
+  const [name, setName] = useState<string>();
+  const [errors, setErrors] = useState<SchemaError[]>([]);
+
+  const hasError = (field: keyof Static<typeof schema>) => {
+    return errors.some((err) => err.field === field);
+  };
+
+  const getErrorMessage = (field: keyof Static<typeof schema>) => {
+    return errors.find((err) => err.field === field)?.message;
+  };
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setName(e.target.value);
+  }
+
+  const createUser = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const { errors: incomingErrors } = validator.validate(schema, {
+      firstName,
+      lastName,
+    });
+
+    setErrors(incomingErrors);
+  };
+
+  return (
+    {/* your onSubmit handler */}
+    <form onSubmit={createUser}>
+      <input onChange={handleChange} />
+      {hasError("lastName") && (
+        <p>{getErrorMessage("lastName")}</p>
+      )}
+
+      <button type="submit">Submit</button>
+    </form>
+  )
+}
+```
+
+> If you're using React we already have an intregation to work with validation using `react-hook-form` under the hood.
+Check the [React Section](/docs/react) for more details.
+
+If validation live within your server-side / backend you may want to return `422` error status as well as the `errors` from the `.validate` method as is.
+
+```ts
+import { type Static } from "@sinclair/typebox";
+// assumed this is a POST route handler
+export function createUser({ req, res }) {
+  const { errors } = validator.validate(schema, req.body);
+
+  if (errors.length) {
+    return res.status(422).send({ errors, message: "Something is not right" });
+  }
+
+  //success
+}
+```
