@@ -70,7 +70,7 @@ importers:
         version: 0.30.2
       '@typeb/composition':
         specifier: '*'
-        version: link:../../packages/validator
+        version: link:../../packages/composition
       '@typeb/hook-form':
         specifier: '*'
         version: link:../../packages/hook-form
@@ -133,6 +133,15 @@ importers:
         specifier: ^3.3.3
         version: 3.3.3(ts-node@10.9.1)
 
+  packages/composition:
+    devDependencies:
+      '@sinclair/typebox':
+        specifier: ^0.30.2
+        version: 0.30.2
+      rimraf:
+        specifier: ^5.0.1
+        version: 5.0.1
+
   packages/hook-form:
     dependencies:
       '@sinclair/typebox':
@@ -144,22 +153,13 @@ importers:
     devDependencies:
       '@typeb/composition':
         specifier: ^0.0.1
-        version: link:../validator
+        version: link:../composition
       '@types/react':
         specifier: ^18.2.18
         version: 18.2.18
       react:
         specifier: ^18.2.0
         version: 18.2.0
-      rimraf:
-        specifier: ^5.0.1
-        version: 5.0.1
-
-  packages/validator:
-    devDependencies:
-      '@sinclair/typebox':
-        specifier: ^0.30.2
-        version: 0.30.2
       rimraf:
         specifier: ^5.0.1
         version: 5.0.1
