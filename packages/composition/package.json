@@ -15,7 +15,8 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/mlazuardy/typebox-composition"
+    "url": "https://github.com/mlazuardy/typebox-composition",
+    "directory": "package/composition"
   },
   "scripts": {
     "build": "tsc",
