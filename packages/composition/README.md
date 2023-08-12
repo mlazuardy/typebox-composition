@@ -8,5 +8,3 @@ yarn add @sinclair/typebox @typeb/composition
 
 pnpm add @sinclair/typebox @typeb/composition
 ```
-
-## Usage

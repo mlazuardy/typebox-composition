@@ -18,6 +18,9 @@
     "url": "https://github.com/mlazuardy/typebox-composition",
     "directory": "package/composition"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsc",
     "test": "jest --config ./tests/jest.config.js"

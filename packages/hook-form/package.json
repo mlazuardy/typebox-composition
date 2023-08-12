@@ -17,6 +17,9 @@
     "url": "https://github.com/mlazuardy/typebox-composition",
     "directory": "package/hook-form"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "build": "tsc"
   },
