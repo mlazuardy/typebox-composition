@@ -17,6 +17,7 @@
     "@sinclair/typebox": "^0.30.2",
     "@typeb/composition": "*",
     "@typeb/hook-form": "*",
+    "dayjs": "^1.11.9",
     "jotai": "^2.3.1",
     "js-cookie": "^3.0.5",
     "next": "^13.4.12",

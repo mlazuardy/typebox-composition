@@ -4,8 +4,9 @@ import type { ErrorInfo, ErrorMessage } from "../interfaces";
 import { isEmptyOrNull } from "../utils";
 
 export function getErrorInfo(error: ValueError): ErrorInfo {
-  const value = error.value;
-  const kind = error.schema[Symbol.for("TypeBox.Kind") as any];
+  const { schema, value } = error;
+  const errorInfo = schema.errorInfo;
+  const kind = schema[Symbol.for("TypeBox.Kind") as any];
   let formattedError: ErrorInfo = {
     messageKey: String(error.type),
   };
@@ -32,11 +33,14 @@ export function getErrorInfo(error: ValueError): ErrorInfo {
     case "Array":
       formattedError = getArrayError(error);
       break;
-
     case "Boolean":
       formattedError = getBooleanError(error);
       break;
     default:
+      if (errorInfo) {
+        formattedError = errorInfo;
+      }
+
       break;
   }
 

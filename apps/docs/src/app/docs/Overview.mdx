@@ -2,30 +2,13 @@ import { OverviewExample } from "./OverviewExample.tsx"
 
 # Overview
 
-## Typebox
-According to [Typebox](https://github.com/sinclairzx81/typebox) repository.
-TypeBox is a runtime type builder that creates in-memory JSON Schema objects that can be statically inferred as TypeScript types. The schemas produced by this library are designed to match the static type assertion rules of the TypeScript language. TypeBox allows one to create a unified type that can be statically checked by TypeScript and runtime asserted using standard JSON Schema validation.
-
-The library is designed to enable JSON schema to compose with the same flexibility as TypeScript's type system. It can be used as a simple tool to build up complex schemas or integrated into REST or RPC services to help validate data received over the wire.
-
-## Typebox Composition
-Typebox is one of the fastest JSON schema validation in javascript world.
-But it (for now) does not provide custom error messages and internationalization (i18n).
-
-We can still customize the error by filtering `Kind` or `type` return from its `ValueError` value.
-However you will end up writing this custom messages over and again if you use typebox in many projects.
-So that's why `Typebox Composition` created to end it all.
-
-here is the different between typebox default messages and our typebox-composition:
-<OverviewExample />
+## Why
+You may have 2 or more projects that use `typebox` to validate either from Server side ( API, graphql etc) or client side (React, Vue and its framework).
 
 ## Limitations
-`Typebox Composition` aimed to validate incoming data within browser/client form input or incoming HTTP Requests.
+We only format Standarad Types
 
-although `Typebox Compositon` already format the messages,
-we pre-formatted the messages only for [JSON Types](https://github.com/sinclairzx81/typebox#json-types) because for now this package focuses on validating data that is usually live within form input (browser/client) or API.
-
-here is the list pre-formatted Type that we covered:
+here is the list pre-formatted Standard Types that we covered:
 - `Type.String`
 - `Type.Number`
 - `Type.Boolean`

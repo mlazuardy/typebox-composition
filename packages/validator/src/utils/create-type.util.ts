@@ -16,5 +16,3 @@ export function createType<Type, Options = object>(
 
   return T;
 }
-
-const FileType = createType<File>({ kind: "String", message: "testW" });

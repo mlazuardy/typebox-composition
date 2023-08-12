@@ -21,7 +21,9 @@ export const validationMessages = {
 
     enum: "the {field} field is invalid.",
 
-    boolean: "the {field} must be true or false",
+    boolean: "the {field} field must be true or false",
+
+    date: "the {field} field must be a valid date.",
   },
   id: {
     required: "{field} tidak boleh kosong.",
@@ -44,5 +46,7 @@ export const validationMessages = {
     enum: "{field} tidak valid.",
 
     boolean: "{field} tidak valid.",
+
+    date: "{field} harus tanggal yang valid.",
   },
 };

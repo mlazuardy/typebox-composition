@@ -13,7 +13,7 @@ export const validator = new TypeComposition({
 });
 
 /**
- *
+ * for example only
  */
 export const plainValidator = new TypeComposition({
   lang: "en",

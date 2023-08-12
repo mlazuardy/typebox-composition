@@ -1,6 +1,3 @@
-export * from "./create-type.util";
-import type { TSchema } from "@sinclair/typebox";
-
 export function isEmptyOrNull(value?: any) {
   return value === "" || value === undefined || value === null;
 }
@@ -9,9 +6,9 @@ export function isObjectEmpty(data: Record<string, any>) {
   return JSON.stringify(data) === "{}";
 }
 
-export function isSchemaOptional(schema: TSchema) {
-  const optionalSymbol = Object.getOwnPropertySymbols(schema).find((s) => {
-    return s.description === "TypeBox.Modifier";
+export function isTypeOptional(options: any) {
+  const optionalSymbol = Object.getOwnPropertySymbols(options).find((s) => {
+    return s.description === "TypeBox.Optional";
   });
 
   if (optionalSymbol) {
