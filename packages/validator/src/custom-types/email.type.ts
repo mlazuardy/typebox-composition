@@ -10,7 +10,7 @@ export const TypeEmail = TypeSystem.Type<string, StringOptions>(
     const input = value as string;
 
     const optionalSymbol = Object.getOwnPropertySymbols(options).find((s) => {
-      return s.description === "TypeBox.Modifier";
+      return s.description === "TypeBox.Optional";
     });
 
     if (input?.length > 320) {
