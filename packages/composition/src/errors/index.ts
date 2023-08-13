@@ -95,7 +95,7 @@ function getStringError({ schema, type }: ValueError) {
 
   if (
     type === ValueErrorType.String ||
-    type === ValueErrorType.ObjectRequiredProperties
+    type === ValueErrorType.ObjectRequiredProperty
   ) {
     return {
       messageKey: ERROR_TYPE.required,
