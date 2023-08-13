@@ -26,10 +26,10 @@
     "test": "jest --config ./tests/jest.config.js"
   },
   "peerDependencies": {
-    "@sinclair/typebox": "^0.30.2"
+    "@sinclair/typebox": "^0.31.0"
   },
   "devDependencies": {
-    "@sinclair/typebox": "^0.30.2",
+    "@sinclair/typebox": "^0.31.0",
     "rimraf": "^5.0.1"
   }
 }
