@@ -1,6 +1,6 @@
 {
   "name": "@typeb/composition",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "typebox composition base",
   "author": "Michael Lazuardy",
   "license": "MIT",
@@ -22,7 +22,7 @@
     "access": "public"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "rimraf ./dist && tsc",
     "test": "jest --config ./tests/jest.config.js"
   },
   "peerDependencies": {
