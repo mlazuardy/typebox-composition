@@ -66,8 +66,8 @@ importers:
         specifier: ^13.4.13
         version: 13.4.13(@mdx-js/loader@2.3.0)(@mdx-js/react@2.3.0)
       '@sinclair/typebox':
-        specifier: ^0.30.2
-        version: 0.30.2
+        specifier: ^0.31.0
+        version: 0.31.0
       '@typeb/composition':
         specifier: '*'
         version: link:../../packages/composition
@@ -136,8 +136,8 @@ importers:
   packages/composition:
     devDependencies:
       '@sinclair/typebox':
-        specifier: ^0.30.2
-        version: 0.30.2
+        specifier: ^0.31.0
+        version: 0.31.0
       rimraf:
         specifier: ^5.0.1
         version: 5.0.1
@@ -145,14 +145,14 @@ importers:
   packages/hook-form:
     dependencies:
       '@sinclair/typebox':
-        specifier: ^0.30.2
-        version: 0.30.2
+        specifier: ^0.31.0
+        version: 0.31.0
       react-hook-form:
         specifier: ^7.45.4
         version: 7.45.4(react@18.2.0)
     devDependencies:
       '@typeb/composition':
-        specifier: ^0.0.1
+        specifier: '*'
         version: link:../composition
       '@types/react':
         specifier: ^18.2.18
@@ -1193,8 +1193,8 @@ packages:
     resolution: {integrity: sha512-+Fj43pSMwJs4KRrH/938Uf+uAELIgVBmQzg/q1YG10djyfA3TnrU8N8XzqCh/okZdszqBQTZf96idMfE5lnwTA==}
     dev: true
 
-  /@sinclair/typebox@0.30.2:
-    resolution: {integrity: sha512-PNEojrBZGQL+llfGfGn6EZNHUXxyvA3LeySMUxMk+i+GrtuT1nBBP3BPzzgJKW9b7lUMa9KxHVx+CIPEy5bL5w==}
+  /@sinclair/typebox@0.31.0:
+    resolution: {integrity: sha512-bL3KIy1cqi4wyKwJZ3szckq0k/IuLluwQ9IB8QMNS2ogHGiqkempV7uO52Tjr79oBgOnlRaOhIf5qkc8HH9KhA==}
 
   /@sinonjs/commons@3.0.0:
     resolution: {integrity: sha512-jXBtWAF4vmdNmZgD5FoKsVLv3rPgDnLgPbU84LIJ3otV44vJlDRokVng5v8NFJdCf/da9legHcKaRuZs4L7faA==}

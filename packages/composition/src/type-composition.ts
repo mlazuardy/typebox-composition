@@ -36,8 +36,6 @@ export class TypeComposition {
     return {
       data,
       errors: mappedErrors,
-      // TODO: REMOVE THIS
-      rawErrors: errors,
     };
   }
 
