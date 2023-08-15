@@ -1,4 +1,5 @@
-import { Type, TypeEmail } from "../../src";
+import { Type } from "@sinclair/typebox";
+import { TypeEmail } from "../../src";
 import { validator } from "../validator";
 
 describe("login", () => {
