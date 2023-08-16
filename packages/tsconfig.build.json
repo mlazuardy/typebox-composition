@@ -1,11 +1,9 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "compilerOptions": {
+    "sourceMap": true,
     "target": "es2021",
-    "composite": false,
     "declaration": true,
-    "declarationMap": false,
-    "sourceMap": false,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "inlineSources": false,
