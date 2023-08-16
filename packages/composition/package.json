@@ -29,7 +29,6 @@
     "@sinclair/typebox": "^0.31.0"
   },
   "devDependencies": {
-    "@sinclair/typebox": "^0.31.0",
     "rimraf": "^5.0.1"
   }
 }
