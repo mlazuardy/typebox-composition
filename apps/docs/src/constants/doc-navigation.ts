@@ -12,7 +12,7 @@ export const docNavigation = [
       { title: "Basic Usage", href: "/docs/basic-usage" },
       {
         title: "Internationalization (i18n)",
-        href: "/docs/internationalization",
+        href: "/docs/i18n",
       },
     ],
   },
