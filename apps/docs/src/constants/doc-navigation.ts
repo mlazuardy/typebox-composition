@@ -20,7 +20,6 @@ export const docNavigation = [
     title: "Custom Types",
     links: [
       { title: "Overview", href: "/docs/custom-types" },
-      { title: "Available Custom Types", href: "/docs/custom-types/available" },
       { title: "Creating Custom Types", href: "/docs/custom-types/creating" },
     ],
   },
@@ -31,13 +30,13 @@ export const docNavigation = [
       { title: "React Hook Form", href: "/docs/react/hook-form" },
     ],
   },
-  {
-    title: "Example",
-    links: [
-      { title: "Basic", href: "/docs/example/basic" },
-      { title: "Array and Object", href: "/docs/example/array-and-object" },
-    ],
-  },
+  // {
+  //   title: "Example",
+  //   links: [
+  //     { title: "Basic", href: "/docs/example/basic" },
+  //     { title: "Array and Object", href: "/docs/example/array-and-object" },
+  //   ],
+  // },
   // {
   //   title: "API reference",
   //   links: [

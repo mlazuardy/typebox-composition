@@ -14,8 +14,9 @@
     "url": "https://github.com/mlazuardy/typebox-composition"
   },
   "scripts": {
-    "dev": "pnpm --filter \"docs\" dev",
+    "dev": "nx run-many --target=dev --skip-nx-cache",
     "build": "nx run-many --target=build --exclude=docs --skip-nx-cache",
+    "build:clean": "nx run-many --target=build:clean --exclude=docs --skip-nx-cache",
     "format": "prettier packages/**/*.ts --ignore-path ./.prettierignore --write",
     "format:app": "prettier apps/**/*.{ts,tsx,js} --ignore-path ./.prettierignore --write",
     "test": "nx run-many --target=test --output-style=stream",

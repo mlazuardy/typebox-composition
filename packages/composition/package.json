@@ -22,7 +22,9 @@
     "access": "public"
   },
   "scripts": {
-    "build": "rimraf ./dist && tsc",
+    "build": "tsc",
+    "build:clean": "rimraf ./dist && tsc",
+    "dev": "tsc --watch",
     "test": "jest --config ./tests/jest.config.js"
   },
   "peerDependencies": {

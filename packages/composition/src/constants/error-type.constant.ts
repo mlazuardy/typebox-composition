@@ -4,6 +4,7 @@ export const ERROR_TYPE = {
   stringEmpty: "stringEmpty",
   stringMin: "stringMin",
   stringMax: "stringMax",
+  stringAlphadash: "stringAlphadash",
 
   email: "email",
 

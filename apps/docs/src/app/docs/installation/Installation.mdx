@@ -12,9 +12,14 @@ yarn add @sinclair/typebox @typeb/composition
 pnpm add @sinclair/typebox @typeb/composition
 ```
 
-After that create `TypeComposition` instance
+## Create TypeComposition Instance
+
 ```typescript
 import { TypeComposition } from "@typeb/composition";
+import en from "@typeb/composition/dist/locales/en";
 
-export const validator = new TypeComposition({ lang: "en" });
+export const validator = new TypeComposition({
+  lang: "en",
+  messages: { en }
+});
 ```

@@ -1,0 +1,110 @@
+import { MacAddressExample } from "@/components/example/MacAddressExample";
+
+# Creating Custom Types
+
+You can create your own custom types using `TypeSystem.Type` from typebox,
+
+```ts
+import { TypeSystem } from "@sinclair/typebox/system";
+
+// Validate mac address
+const PATTERN = /^([0-9A-F]{2}[:-]){5}([0-9A-F]{2})$/;
+
+export const TypeMacAddress = TypeSystem.Type<string>(
+  "MacAddress",
+  (options, value: any) => {
+    return PATTERN.test(value);
+  },
+);
+```
+
+<MacAddressExample plain />
+
+As you can see in the example above the validation message does not formatted if we're using direct method from `TypeSystem.Type`.
+
+In order to format the message, you need to slightly modify the return value and extends our `CustomTypeOptions`.
+if the validation failed, we can modify the `options` and add `errorInfo` just before we return a `true/false` value inside the Custom Type.
+
+```ts
+import { TypeSystem } from "@sinclair/typebox/system";
+import { CustomTypeOptions } from "@typeb/composition";
+
+// Validate mac address
+const PATTERN = /^([0-9A-F]{2}[:-]){5}([0-9A-F]{2})$/;
+
+export const TypeMacAddress = TypeSystem.Type<
+  string,
+  CustomTypeOptions
+>("MacAddress", (options = {}, value: any) => {
+  const isValid = PATTERN.test(value);
+
+  if (!isValid) {
+    options.errorInfo = {
+      messageKey: "macAddress",
+    };
+  }
+
+  return isValid;
+});
+```
+
+In the example above we append `errorInfo.messageKey` with `macAddress` value to the `options`. This is not done yet, last thing you need to do is defined the `messageKey` within your `TypeComposition` instance.
+
+```ts
+// somewhere in your code
+
+export const validator = new TypeComposition({
+  lang: "en",
+  messages: {
+    en: {
+      // ...rest of your messages or our defaultMessages
+      macAddress: "the {field} field must be a valid mac address."
+    },
+    // defined other languages too if you're using i18n
+  },
+});
+```
+
+<MacAddressExample />
+
+If you need to skip the validation when your custom type is optiona, before validating your custom type you can check if there is an `Optional` `Kind` inside your custom type.
+You can use our `isTypeOptional` utility to check if your custom type is optional.
+
+
+<MacAddressExample optional />
+
+```ts
+import { TypeSystem } from "@sinclair/typebox/system";
+import { CustomTypeOptions, isTypeOptional } from "@typeb/composition";
+
+// Validate mac address
+const PATTERN = /^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$/;
+
+export const TypeMacAddress = TypeSystem.Type<
+  string,
+  CustomTypeOptions
+>("MacAddress", (options = {}, value: any) => {
+  // internally typebox added `Typebox.Optional` symbol in the `options` so we can check it.
+  if (isTypeOptional(options) && !value) {
+    return true;
+  }
+
+  const isValid = PATTERN.test(value);
+
+  if (!isValid) {
+    options.errorInfo = {
+      messageKey: "macAddress",
+    };
+  }
+
+  return isValid;
+});
+```
+
+And then you can wrapped your Custom Type using `Type.Optional`
+
+```ts
+const schema = Type.Object({
+  macAddress: Type.Optional(TypeMacAddress())
+})
+```

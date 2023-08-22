@@ -12,6 +12,8 @@ export const validationMessages = {
       "the {field} field must be greater or equal to {expected} characters.",
     stringMax:
       "the {field} field must be less or equal to {expected} characters.",
+    stringAlphadash:
+      "the {field} field must only contain letters, numbers, dashes and underscores.",
 
     email: "the {field} field must be a valid email.",
 
@@ -24,6 +26,8 @@ export const validationMessages = {
     boolean: "the {field} field must be true or false",
 
     date: "the {field} field must be a valid date.",
+
+    macAddress: "the {field} field is not a valid mac address.",
   },
   id: {
     required: "{field} tidak boleh kosong.",
@@ -48,5 +52,7 @@ export const validationMessages = {
     boolean: "{field} tidak valid.",
 
     date: "{field} harus tanggal yang valid.",
+
+    macAddress: "{field} tidak valid.",
   },
 };

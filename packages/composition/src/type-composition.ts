@@ -6,7 +6,6 @@ import {
   SchemaError,
 } from "./interfaces";
 import { Value, ValueError } from "@sinclair/typebox/value";
-import { messages as defaultMessages } from "./messages";
 import { formatMessage, getErrorInfo } from "./errors";
 
 export class TypeComposition {
@@ -15,7 +14,7 @@ export class TypeComposition {
 
   constructor(options: TypeCompositionOptions) {
     this.lang = options.lang;
-    this.messages = options.messages || defaultMessages;
+    this.messages = options.messages;
   }
 
   private getLang(lang?: string) {

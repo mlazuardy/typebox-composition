@@ -21,7 +21,8 @@
     "access": "public"
   },
   "scripts": {
-    "build": "rimraf ./dist && tsc"
+    "build": "tsc",
+    "build:clean": "rimraf ./dist && tsc"
   },
   "peerDependencies": {
     "@typeb/composition": "^0.1.0",

@@ -90,7 +90,7 @@ function getNumberError({ schema, type: defaultType, value }: ValueError) {
   };
 }
 
-function getStringError({ schema, type }: ValueError) {
+function getStringError({ schema, type, value }: ValueError) {
   let expected: any;
 
   if (
@@ -123,6 +123,12 @@ function getStringError({ schema, type }: ValueError) {
     return {
       messageKey: ERROR_TYPE.stringMax,
       expected,
+    };
+  }
+
+  if (value && schema.format === "alphadash") {
+    return {
+      messageKey: ERROR_TYPE.stringAlphadash,
     };
   }
 

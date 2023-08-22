@@ -1,4 +1,4 @@
-export interface ErrorInfo extends Record<string, any> {
+export interface ErrorInfo {
   messageKey: string;
   expected?: any;
 }
