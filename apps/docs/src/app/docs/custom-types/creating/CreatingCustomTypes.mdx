@@ -70,9 +70,6 @@ export const validator = new TypeComposition({
 If you need to skip the validation when your custom type is optiona, before validating your custom type you can check if there is an `Optional` `Kind` inside your custom type.
 You can use our `isTypeOptional` utility to check if your custom type is optional.
 
-
-<MacAddressExample optional />
-
 ```ts
 import { TypeSystem } from "@sinclair/typebox/system";
 import { CustomTypeOptions, isTypeOptional } from "@typeb/composition";
@@ -99,12 +96,13 @@ export const TypeMacAddress = TypeSystem.Type<
 
   return isValid;
 });
-```
 
-And then you can wrapped your Custom Type using `Type.Optional`
-
-```ts
+// somewhere in your file
 const schema = Type.Object({
   macAddress: Type.Optional(TypeMacAddress())
 })
 ```
+
+And then you can wrapped your Custom Type using `Type.Optional`
+
+<MacAddressExample optional />
