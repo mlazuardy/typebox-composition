@@ -2,7 +2,6 @@ pre[class*='language-'] {
   color: theme('colors.gray.50');
 }
 
-.token.tag,
 .token.class-name,
 .token.selector,
 .token.selector .class,
@@ -14,7 +13,6 @@ pre[class*='language-'] {
   @apply text-indigo-600;
 }
 
-.token.attr-name,
 .token.keyword,
 .token.rule,
 .token.pseudo-class,
@@ -31,11 +29,6 @@ pre[class*='language-'] {
 .token.string,
 .token.property {
   color: theme('colors.sky.300');
-}
-
-.token.punctuation,
-.token.attr-equals {
-  color: theme('colors.gray.500');
 }
 
 .token.unit,
