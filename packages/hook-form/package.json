@@ -21,6 +21,7 @@
     "access": "public"
   },
   "scripts": {
+    "dev": "tsc --watch",
     "build": "tsc",
     "build:clean": "rimraf ./dist && tsc"
   },

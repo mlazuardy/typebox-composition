@@ -104,7 +104,7 @@ export const UserForm: React.FC = () => {
 We (subjectively) noticed that displaying errors like `{!!errors?.name?.message && <span>{errors.name.message}</span>}` is not cool,
 especially when you need to write extra attributes like `className` that added a red color, small text etc, to that `span` tag.
 
-To make it more simpler and readable, you need to:
+To make it more simpler and readable, you can try this step:
 1. Create a custom `useForm` and add extra function to register the error for each fields.
 2. Create custom component and conditionally render if `errors[field]` is present.
 
@@ -163,7 +163,7 @@ export const FieldError: React.FC<Props> = ({ error, name }) => {
     return null;
   }
 
-  // assumed this is tailwind :), adjust this based on your styles preferences
+  // assumed this is tailwind :), adjust this based on your styles preference
   return (
     <p className="mt-1 text-red-500 text-xs font-medium">
       {message}

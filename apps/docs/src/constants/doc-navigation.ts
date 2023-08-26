@@ -8,13 +8,7 @@ export const docNavigation = [
   },
   {
     title: "Guide",
-    links: [
-      { title: "Basic Usage", href: "/docs/basic-usage" },
-      {
-        title: "Internationalization (i18n)",
-        href: "/docs/i18n",
-      },
-    ],
+    links: [{ title: "Basic Usage", href: "/docs/basic-usage" }],
   },
   {
     title: "Custom Types",
@@ -32,9 +26,7 @@ export const docNavigation = [
   },
   {
     title: "Example",
-    links: [
-      { title: "Basic", href: "/docs/example/basic" },
-    ],
+    links: [{ title: "Basic", href: "/docs/example/basic" }],
   },
   // {
   //   title: "API reference",

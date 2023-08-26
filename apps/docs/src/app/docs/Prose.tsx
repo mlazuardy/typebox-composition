@@ -4,6 +4,7 @@ import { classNames } from "@/utils/classname";
 export const Prose: CFC<{ className?: string }> = ({ className, children }) => {
   return (
     <div
+      id="docs-root"
       className={classNames(
         className,
         "prose prose-gray max-w-none dark:prose-invert dark:text-gray-400",
