@@ -1,7 +1,6 @@
 import type { Static, TObject, TProperties } from "@sinclair/typebox";
 import { TypeboxResolverOptions } from "./interfaces";
 import { SchemaError, ValidateOptions } from "@typeb/composition";
-import { validator as defaultValidator } from "./validator";
 import { Value } from "@sinclair/typebox/value";
 
 function isObjectEmpty(data: Record<string, any>) {
@@ -10,9 +9,9 @@ function isObjectEmpty(data: Record<string, any>) {
 
 export function typeboxResolver<T extends TProperties>(
   schema: TObject<T>,
-  options?: TypeboxResolverOptions<T> & ValidateOptions,
+  options: TypeboxResolverOptions<T>,
 ) {
-  const validator = options?.validator || defaultValidator;
+  const validator = options.validator;
   return (data: Static<typeof schema>) => {
     const convert = options?.convert || false;
 

@@ -1,5 +1,5 @@
+import "../assets/css/app.css";
 import { AppProvider } from "@/components/AppProvider";
-import "./globals.css";
 import { Header } from "@/components/layouts/Header";
 import { classNames } from "@/utils/classname";
 import type { Metadata } from "next";
