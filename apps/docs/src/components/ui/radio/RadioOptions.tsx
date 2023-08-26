@@ -18,7 +18,12 @@ export const RadioOptions: React.FC<Props> = ({
   className,
 }) => {
   return (
-    <RadioGroup onChange={onChange} as="div" className={className} suppressHydrationWarning>
+    <RadioGroup
+      onChange={onChange}
+      as="div"
+      className={className}
+      suppressHydrationWarning
+    >
       {options.map((option) => (
         <RadioGroup.Option
           key={option.name}
@@ -34,7 +39,9 @@ export const RadioOptions: React.FC<Props> = ({
           }
           suppressHydrationWarning
         >
-          <RadioGroup.Label as="span" suppressHydrationWarning>{option.name}</RadioGroup.Label>
+          <RadioGroup.Label as="span" suppressHydrationWarning>
+            {option.name}
+          </RadioGroup.Label>
         </RadioGroup.Option>
       ))}
     </RadioGroup>

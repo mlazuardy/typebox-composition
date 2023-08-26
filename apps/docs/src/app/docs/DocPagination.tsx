@@ -6,10 +6,10 @@ import { usePathname } from "next/navigation";
 
 export const DocPagination: React.FC = () => {
   const pathname = usePathname();
-  let allLinks = docNavigation.flatMap((section) => section.links);
-  let linkIndex = allLinks.findIndex((link) => link.href === pathname);
-  let previousPage = allLinks[linkIndex - 1];
-  let nextPage = allLinks[linkIndex + 1];
+  const allLinks = docNavigation.flatMap((section) => section.links);
+  const linkIndex = allLinks.findIndex((link) => link.href === pathname);
+  const previousPage = allLinks[linkIndex - 1];
+  const nextPage = allLinks[linkIndex + 1];
 
   return (
     <dl className="mt-12 flex border-t border-slate-200 pt-6 dark:border-slate-800">

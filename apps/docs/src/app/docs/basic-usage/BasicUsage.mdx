@@ -6,12 +6,6 @@ As we mentioned in the [Overview](/docs), type composition aimed to validate inc
 
 First, make sure you have create an `TypeComposition` instance that we mentioned in the [Installation Guide](/docs/installation).
 
-```ts
-import { TypeComposition } from "@typeb/composition";
-
-export const validator = new TypeComposition({ lang: "en" });
-```
-
 Then create a schema / rules.
 
 ```ts
@@ -26,6 +20,7 @@ After that you can validate the using this schema from your incoming data using 
 
 ```ts
 import { type Static } from "@sinclair/typebox";
+import { validator } from "./your-type-composition-instance";
 // assumed you passed incoming data within this function
 export function createUser(data: Static<typeof schema>) {
   const { errors } = validator.validate(schema, data);
