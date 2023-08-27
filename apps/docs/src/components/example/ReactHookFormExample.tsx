@@ -7,7 +7,16 @@ import { Button, Card, Input, Label } from "../ui";
 import { FieldError } from "../error/FieldError";
 
 const schema = Type.Object({
-  name: Type.String({ minLength: 1, required: true }),
+  name: Type.String({
+    minLength: 8,
+    maxLength: 50,
+    messages: {
+      en: {
+        required: "required coy",
+        stringMin: "{field} must be at least {expected} characters.",
+      },
+    },
+  }),
   email: TypeEmail(),
 });
 

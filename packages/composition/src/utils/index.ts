@@ -3,6 +3,10 @@ export function isEmptyOrNull(value?: any) {
 }
 
 export function isObjectEmpty(data: Record<string, any>) {
+  if (!data) {
+    return true;
+  }
+
   return JSON.stringify(data) === "{}";
 }
 

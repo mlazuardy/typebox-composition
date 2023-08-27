@@ -12,7 +12,7 @@ Then create a schema / rules.
 import { Type } from "@sinclair/typebox";
 
 const schema = Type.Object({
-  name: Type.String({ minLength: 8, maxLength: 50 }),
+  name: Type.String({ minLength: 1, maxLength: 50 }),
 });
 ```
 
@@ -37,6 +37,7 @@ As you can see in the example above, if validation fails, we can check if `error
 - If you're using validation within backend like express, fastify etc. you can send the errors as well as error status `422`.
 - in Browser / client like React, Vue etc. You can update your errors state and conditionally return the error component / tag.
 
+## Validation Error Response Format
 If validation fails, the `errors` will return like this:
 
 ```json
@@ -45,7 +46,7 @@ If validation fails, the `errors` will return like this:
     field: "name",
     kind: "String",
     path: "/name",
-    message: "the name field is required.",
+    message: "the name field must be at least 1 characters.",
   },
 ]
 ```
@@ -56,3 +57,27 @@ If validation fails, the `errors` will return like this:
 | kind  | Typebox or custom type kind |
 | path  | Typebox path, if schema is nested it will return /path/:nestedPath/:and so on  |
 | message | pre-formatted message, or plain message if we dont covered the Type |
+
+> For now, `@typeb/composition` only display first error for each properties.
+
+## A Note On some Fields
+Some fields may return different messages from what you expected.
+Here is the list of the fields that return different messages from what you expected and how to adjust it.
+
+### String
+In some cases especially in client side validation (a form), an input may return an empty string (`""`).
+When this happened and you have a `minLength` property inside your `Type.String` rule and the value you're trying to validate is an empty strign, the messages will return a `stringMin` validation.
+
+If you preferred to return a `required` messages you can added `required` to true inside your `Type.String` validation.
+
+```ts
+const schema = Type.Object({
+  name: Type.String({
+    minLength: 1,
+    // return`required` error message instead of `stringMin` when the value is empty string
+    required: true
+  })
+})
+```
+
+Internally `@typeb/composition` will return a `required` error message instead of `stringMin`
