@@ -19,7 +19,7 @@
     "build:clean": "nx run-many --target=build:clean --exclude=docs --skip-nx-cache",
     "format": "prettier packages/**/*.ts --ignore-path ./.prettierignore --write",
     "format:app": "prettier apps/**/*.{ts,tsx,js} --ignore-path ./.prettierignore --write",
-    "test": "nx run-many --target=test --output-style=stream",
+    "test": "nx run-many --target=test --output-style=stream --skip-nx-cache",
     "publish:composition": "pnpm --filter \"@typeb/composition\" publish",
     "publish:hook-form": "pnpm --filter \"@typeb/hook-form\" publish"
   },
