@@ -1,6 +1,6 @@
-import type { ErrorMessage } from "../interfaces";
+import { LocalMessage } from "../interfaces/message.interface";
 
-const messages: Record<string, ErrorMessage> = {
+const messages: LocalMessage = {
   required: "the {field} field is required.",
 
   arrayMin: "the {field} field must be more or equal to {expected} items.",
