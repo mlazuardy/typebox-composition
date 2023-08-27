@@ -9,6 +9,7 @@ import { Value, ValueError } from "@sinclair/typebox/value";
 import { formatMessage, getErrorInfo } from "./errors";
 import { isObjectEmpty } from "./utils";
 import { LocalMessage } from "./interfaces/message.interface";
+import en from "./locales/en";
 
 export class TypeComposition {
   private lang = "en";
@@ -16,7 +17,7 @@ export class TypeComposition {
 
   constructor(options: TypeCompositionOptions) {
     this.lang = options.lang;
-    this.messages = options.messages;
+    this.messages = options.messages || { en };
   }
 
   private getLang(lang?: string) {
@@ -76,6 +77,7 @@ export class TypeComposition {
       kind,
       path: error.path,
       message: "",
+      type: error.type,
     };
 
     if (!messageVal) {

@@ -14,7 +14,7 @@ export interface TypeCompositionOptions {
    *  },
    * }
    */
-  messages: Record<string, Record<string, ErrorMessage>>;
+  messages?: Record<string, Record<string, ErrorMessage>>;
 }
 
 export interface ValidateOptions {
