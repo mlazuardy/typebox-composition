@@ -1,6 +1,6 @@
 import type { Static, TObject, TProperties } from "@sinclair/typebox";
 import { TypeboxResolverOptions } from "./interfaces";
-import { SchemaError, ValidateOptions } from "@typeb/composition";
+import { SchemaError } from "@typeb/composition";
 import { Value } from "@sinclair/typebox/value";
 
 function isObjectEmpty(data: Record<string, any>) {
