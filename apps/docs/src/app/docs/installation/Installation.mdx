@@ -1,6 +1,5 @@
 # Installation
 
-## Adding Typebox Composition
 Make sure you have an up-to-date NodeJS version (prefer 18++) installed on your local machine.
 
 Start by installing our package and its peerDepedencies
@@ -10,16 +9,4 @@ npm install @sinclair/typebox @typeb/composition
 yarn add @sinclair/typebox @typeb/composition
 
 pnpm add @sinclair/typebox @typeb/composition
-```
-
-## Create TypeComposition Instance
-
-```typescript
-import { TypeComposition } from "@typeb/composition";
-import en from "@typeb/composition/dist/locales/en";
-
-export const validator = new TypeComposition({
-  lang: "en",
-  messages: { en }
-});
 ```

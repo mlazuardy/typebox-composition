@@ -8,7 +8,10 @@ export const docNavigation = [
   },
   {
     title: "Guide",
-    links: [{ title: "Basic Usage", href: "/docs/basic-usage" }],
+    links: [
+      { title: "Basic Usage", href: "/docs/basic-usage" },
+      { title: "Customizing Error Messages", href: "/docs/error-messages" },
+    ],
   },
   {
     title: "Custom Types",

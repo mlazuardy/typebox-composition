@@ -1,3 +1,5 @@
+import type { ValueErrorType } from "@sinclair/typebox/errors";
+
 export interface ErrorInfo {
   messageKey: string;
   expected?: any;
@@ -10,4 +12,5 @@ export interface SchemaError {
   message: string;
   kind: string;
   path: string;
+  type?: ValueErrorType;
 }

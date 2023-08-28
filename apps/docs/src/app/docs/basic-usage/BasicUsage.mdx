@@ -1,12 +1,24 @@
+import { EmptyStringForm } from "@/components/example/string/EmptyStringForm";
+
 # Basic Usage
 
-As we mentioned in the [Overview](/docs), type composition aimed to validate incoming data either from form input or within your HTTP Requests.
+## Create TypeComposition Instance
+
+```typescript
+import { TypeComposition } from "@typeb/composition";
+
+export const validator = new TypeComposition({
+  // default or fallback language
+  lang: "en",
+});
+```
 
 ## Writing Schema / Rules
 
-First, make sure you have create an `TypeComposition` instance that we mentioned in the [Installation Guide](/docs/installation).
+As we mentioned in the [Overview](/docs), type composition aimed to validate incoming data either from form input or within your HTTP Requests,
+so the common format when validating incoming `value` is an object.
 
-Then create a schema / rules.
+To create a schema or rules all you have to do is wrapped every properties inside `Type.Object`.
 
 ```ts
 import { Type } from "@sinclair/typebox";
@@ -33,14 +45,14 @@ export function createUser(data: Static<typeof schema>) {
 }
 ```
 
-As you can see in the example above, if validation fails, we can check if `errors.length` is more than one.
-- If you're using validation within backend like express, fastify etc. you can send the errors as well as error status `422`.
-- in Browser / client like React, Vue etc. You can update your errors state and conditionally return the error component / tag.
+Depend on where the validation fails happened, when validation fails you can:
+- in server side (API, etc) you can return 422 error and send the `errors` response.
+- in client side you can set the `errors` response as a reactive value eg. `useState` in React or `ref` in Vue.
 
 ## Validation Error Response Format
 If validation fails, the `errors` will return like this:
 
-```json
+```ts
 [
   {
     field: "name",
@@ -66,18 +78,23 @@ Here is the list of the fields that return different messages from what you expe
 
 ### String
 In some cases especially in client side validation (a form), an input may return an empty string (`""`).
-When this happened and you have a `minLength` property inside your `Type.String` rule and the value you're trying to validate is an empty strign, the messages will return a `stringMin` validation.
+When this happened and you have a `minLength` property inside your `Type.String` rule and the value you're trying to validate is an empty string,
+the messages will return a `stringMin` validation.
 
-If you preferred to return a `required` messages you can added `required` to true inside your `Type.String` validation.
+<EmptyStringForm />
+
+Notice it returned `stringMin` validation. If you preferred to return a `required` messages you can added `required` to true inside your `Type.String` validation.
 
 ```ts
 const schema = Type.Object({
   name: Type.String({
-    minLength: 1,
+    minLength: 3,
     // return`required` error message instead of `stringMin` when the value is empty string
     required: true
   })
 })
 ```
+
+<EmptyStringForm isRequired />
 
 Internally `@typeb/composition` will return a `required` error message instead of `stringMin`
