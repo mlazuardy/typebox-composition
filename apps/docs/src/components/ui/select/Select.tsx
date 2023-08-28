@@ -14,3 +14,5 @@ export const Select = forwardRef<
     </select>
   );
 });
+
+Select.displayName = "Select";

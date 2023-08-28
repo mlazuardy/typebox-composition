@@ -1,6 +1,6 @@
 {
   "name": "@typeb/hook-form",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "React hook form resolver for typebox",
   "author": "Michael Lazuardy",
   "lisence": "MIT",
@@ -21,7 +21,9 @@
     "access": "public"
   },
   "scripts": {
-    "build": "rimraf ./dist && tsc"
+    "dev": "tsc --watch",
+    "build": "tsc",
+    "build:clean": "rimraf ./dist && tsc"
   },
   "peerDependencies": {
     "@typeb/composition": "^0.1.0",

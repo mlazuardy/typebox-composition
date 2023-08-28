@@ -1,14 +1,12 @@
 import { $date } from "@/plugins/date.plugin";
-import { SchemaOptions } from "@sinclair/typebox";
 import { TypeSystem } from "@sinclair/typebox/system";
-import { isTypeOptional } from "@typeb/composition";
+import { CustomTypeOptions, isTypeOptional } from "@typeb/composition";
 
-type Options = {
+interface DateOptions extends CustomTypeOptions {
   format?: string;
-} & SchemaOptions &
-  Record<string, any>;
+}
 
-export const TypeDateString = TypeSystem.Type<Date, Options>(
+export const TypeDateString = TypeSystem.Type<Date, DateOptions>(
   "DateString",
   (options, value) => {
     if (!value && isTypeOptional(options)) {
