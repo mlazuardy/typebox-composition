@@ -1,6 +1,7 @@
 import type { MDXComponents } from "mdx/types";
 import { Fence } from "./components/common/Fence";
 import Link from "next/link";
+import { slugify } from "./utils/string.util";
 
 // This file allows you to provide custom React components
 // to be used in MDX files. You can import and use any
@@ -28,6 +29,11 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         (children as any)?.props?.className?.replace("language-", "") ||
         "typescript";
       return <Fence code={code} language={language} />;
+    },
+    h2: ({ children }) => {
+      const id = typeof children === "string" ? slugify(children) : undefined;
+
+      return <h2 id={id}>{children}</h2>;
     },
   };
 }

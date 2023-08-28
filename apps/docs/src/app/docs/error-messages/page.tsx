@@ -1,10 +1,10 @@
 import { getTitle } from "@/shared/shared-metadata";
-import ArrayAndObject from "./ArrayAndObject.mdx";
+import ErrorMessages from "./ErrorMessages.mdx";
 
 export const metadata = {
-  title: getTitle("Array and Object"),
+  title: getTitle("Error Messages"),
 };
 
 export default function Page() {
-  return <ArrayAndObject />;
+  return <ErrorMessages />;
 }

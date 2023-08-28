@@ -1,6 +1,7 @@
 "use client";
 import { Fragment } from "react";
 import { Highlight, themes } from "prism-react-renderer";
+import { FenceToken } from "./FenceToken";
 
 interface Props {
   code: string;
@@ -18,7 +19,11 @@ export const Fence: React.FC<Props> = ({ code, language = "typescript" }) => {
                 {line
                   .filter((token) => !token.empty)
                   .map((token, tokenIndex) => (
-                    <span key={tokenIndex} {...getTokenProps({ token })} />
+                    <FenceToken
+                      key={tokenIndex}
+                      token={token}
+                      {...getTokenProps({ token })}
+                    />
                   ))}
                 {"\n"}
               </Fragment>

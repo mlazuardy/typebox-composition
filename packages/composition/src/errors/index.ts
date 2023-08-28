@@ -90,13 +90,10 @@ function getNumberError({ schema, type: defaultType, value }: ValueError) {
   };
 }
 
-function getStringError({ schema, type }: ValueError) {
+function getStringError({ schema, type, value }: ValueError) {
   let expected: any;
 
-  if (
-    type === ValueErrorType.String ||
-    type === ValueErrorType.ObjectRequiredProperty
-  ) {
+  if (type === ValueErrorType.ObjectRequiredProperty) {
     return {
       messageKey: ERROR_TYPE.required,
       expected,
@@ -105,7 +102,7 @@ function getStringError({ schema, type }: ValueError) {
 
   if (type === ValueErrorType.StringMinLength) {
     expected = schema.minLength;
-    if (schema.minLength === 1 && schema.required) {
+    if (!value && schema.required) {
       return {
         messageKey: ERROR_TYPE.required,
         expected,
@@ -126,8 +123,14 @@ function getStringError({ schema, type }: ValueError) {
     };
   }
 
+  if (value && schema.format === "alphadash") {
+    return {
+      messageKey: ERROR_TYPE.stringAlphadash,
+    };
+  }
+
   return {
-    messageKey: ERROR_TYPE.required,
+    messageKey: ERROR_TYPE.string,
     expected,
   };
 }

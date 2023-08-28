@@ -1,0 +1,225 @@
+import { ReactHookFormExample } from "@/components/example/ReactHookFormExample";
+
+# React Hook Form
+
+You can use our react-hook-form integration to create your form validation.
+
+## Installation
+
+```bash
+npm install react-hook-form @typeb/hook-form
+
+yarn add react-hook-form @typeb/hook-form
+
+pnpm add react-hook-form @typeb/hook-form
+```
+
+## Creating Resolver
+After installing the integration package, create your resolver using our `typeboxResolver` function.
+
+```ts
+import { TypeComposition } from "@typeb/composition";
+import { typeboxResolver } from "@typeb/hook-form";
+
+// assumed this is your TypeComposition instance
+// you can also place this somewhere if you do not prefer defining validator and instance like this.
+export const validator = new TypeComposition({
+  lang: "en",
+  // your validation messages, see the messages guide inside Introduction -> Installation
+  messages: validationMessages,
+});
+
+export function myResolver<T extends TProperties>(schema: TObject<T>) {
+  return typeboxResolver(schema, { validator });
+}
+```
+
+`typeboxResolver` accept 2 arguments, the first one is your `schema` or `rules` and the second one is an object explained below:
+
+| Property  | Description | Required |
+| ------------- | ------------- | ------------- |
+| validator  | your `TypeComposition` instance  | Yes |
+| convert  | boolean, convert value to its target (schema), default is true  | No |
+| lang | language you want to use when validating value, this is for i18n, default using TypeComposition.lang prop | No |
+| beforeValidate | a function that accept `value` as an argument, useful for modifying your value before validate | No |
+
+The idea to create your own resolver instead providing defaultResolver because `typeboxResolver` need to know which `TypeboxComposition` instance it need to used.
+
+After that you're good to go, you can now pass `myResolver` to the `resolver` options inside `react-hook-form`. Here is the example:
+
+```tsx
+// for nextjs you may need this
+"use client";
+import { myResolver } from "./your-resolver";
+import { Static, Type } from "@sinclair/typebox";
+import { TypeEmail } from "@typeb/composition";
+import { useForm } from "react-hook-form";
+
+const schema = Type.Object({
+  name: Type.String({ minLength: 1, required: true }),
+  email: TypeEmail(),
+});
+
+export const UserForm: React.FC = () => {
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm({
+    resolver: myResolver(schema),
+  });
+
+  const save = (data: Static<typeof schema>) => {
+    // do something
+  };
+
+  return (
+    <div>
+      <form onSubmit={handleSubmit(save)}>
+        <div>
+          <label>Name</label>
+          <input type="text" {...register("name")} />
+          {!!errors?.name?.message && <span>{errors.name.message}</span>}
+        </div>
+
+        <div>
+          <label htmlFor="email">Email</label>
+          <input type="email" {...register("email")} />
+          {!!errors?.email?.message && <span>{errors.email.message}</span>}
+        </div>
+
+        <div>
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  );
+};
+```
+
+<ReactHookFormExample />
+
+## Make Error Component Simple
+We (subjectively) noticed that displaying errors like `{!!errors?.name?.message && <span>{errors.name.message}</span>}` is not cool,
+especially when you need to write extra attributes like `className` that added a red color, small text etc, to that `span` tag.
+
+To make it more simpler and readable, you can try this step:
+1. Create a custom `useForm` and add extra function to register the error for each fields.
+2. Create custom component and conditionally render if `errors[field]` is present.
+
+### 1. Create a custom `useForm`
+```ts
+import {
+  FieldError,
+  FieldValues,
+  Path,
+  useForm as ReactUseForm,
+  UseFormProps,
+} from "react-hook-form";
+import { useCallback } from "react";
+
+export function useForm<TFieldValues extends FieldValues = FieldValues>(
+  props: UseFormProps<TFieldValues> = {},
+) {
+  // you can also set default resolver and added `schema` options to the `props` arguments above
+  const { formState, ...rest } = ReactUseForm(props);
+  const registerError = useCallback(
+    (name: Path<TFieldValues>) => {
+      return {
+        name,
+        error: formState.errors[name] as FieldError,
+        // you can add additional properties here if needed
+      };
+    },
+    [formState.errors],
+  );
+
+  return {
+    ...rest,
+    formState, // re-export formState just in case we need it
+    registerError,
+  } as const;
+}
+
+```
+
+### 2. Custom FieldError Component
+```tsx
+import { useMemo } from "react";
+import type { FieldError as TFieldError } from "react-hook-form";
+
+interface Props {
+  name: string;
+  error?: TFieldError;
+}
+
+export const FieldError: React.FC<Props> = ({ error, name }) => {
+  const message = useMemo(() => {
+    return error?.message;
+  }, [error]);
+
+  if (!message) {
+    return null;
+  }
+
+  // assumed this is tailwind :), adjust this based on your styles preference
+  return (
+    <p className="mt-1 text-red-500 text-xs font-medium">
+      {message}
+    </p>
+  );
+};
+```
+
+And that's it, all you have to do is change where you import the `useForm` using your on `useForm` hooks and change the `{!!errors?.name?.message && <span>{errors.name.message}</span>}` using the `FieldError` component.
+
+```tsx
+// for nextjs you may need this
+"use client";
+import { myResolver } from "./your-resolver";
+import { Static, Type } from "@sinclair/typebox";
+import { TypeEmail } from "@typeb/composition";
+import { useForm } from "./yourUseFormHook";
+import { FieldError } from "./YourFieldError.tsx";
+
+const schema = Type.Object({
+  name: Type.String({ minLength: 1, required: true }),
+  email: TypeEmail(),
+});
+
+export const UserForm: React.FC = () => {
+  const {
+    handleSubmit,
+    register,
+    registerError
+  } = useForm({
+    resolver: myResolver(schema),
+  });
+
+  const save = (data: Static<typeof schema>) => {
+    // do something
+  };
+
+  return (
+    <div>
+      <form onSubmit={handleSubmit(save)}>
+        <div>
+          <label>Name</label>
+          <input type="text" {...register("name")} />
+          <FieldError {...registerError("name")} />
+        </div>
+
+        <div>
+          <label htmlFor="email">Email</label>
+          <input type="email" {...register("email")} />
+          <FieldError {...registerError("email")} />
+        </div>
+
+        <div>
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  );
+};
+```

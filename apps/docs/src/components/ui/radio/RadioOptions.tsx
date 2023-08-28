@@ -10,15 +10,23 @@ interface Props {
     value: any;
   }[];
   className?: string;
+  value?: any;
 }
 
 export const RadioOptions: React.FC<Props> = ({
   onChange,
   options,
   className,
+  value,
 }) => {
   return (
-    <RadioGroup onChange={onChange} as="div" className={className} suppressHydrationWarning>
+    <RadioGroup
+      onChange={onChange}
+      as="div"
+      className={className}
+      suppressHydrationWarning
+      value={value}
+    >
       {options.map((option) => (
         <RadioGroup.Option
           key={option.name}
@@ -34,7 +42,9 @@ export const RadioOptions: React.FC<Props> = ({
           }
           suppressHydrationWarning
         >
-          <RadioGroup.Label as="span" suppressHydrationWarning>{option.name}</RadioGroup.Label>
+          <RadioGroup.Label as="span" suppressHydrationWarning>
+            {option.name}
+          </RadioGroup.Label>
         </RadioGroup.Option>
       ))}
     </RadioGroup>

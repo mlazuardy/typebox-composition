@@ -1,9 +1,11 @@
 export const ERROR_TYPE = {
   required: "required",
 
+  string: "string",
   stringEmpty: "stringEmpty",
   stringMin: "stringMin",
   stringMax: "stringMax",
+  stringAlphadash: "stringAlphadash",
 
   email: "email",
 

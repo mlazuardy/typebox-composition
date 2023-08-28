@@ -10,17 +10,13 @@ export const docNavigation = [
     title: "Guide",
     links: [
       { title: "Basic Usage", href: "/docs/basic-usage" },
-      {
-        title: "Internationalization (i18n)",
-        href: "/docs/internationalization",
-      },
+      { title: "Customizing Error Messages", href: "/docs/error-messages" },
     ],
   },
   {
     title: "Custom Types",
     links: [
       { title: "Overview", href: "/docs/custom-types" },
-      { title: "Available Custom Types", href: "/docs/custom-types/available" },
       { title: "Creating Custom Types", href: "/docs/custom-types/creating" },
     ],
   },
@@ -33,10 +29,7 @@ export const docNavigation = [
   },
   {
     title: "Example",
-    links: [
-      { title: "Basic", href: "/docs/example/basic" },
-      { title: "Array and Object", href: "/docs/example/array-and-object" },
-    ],
+    links: [{ title: "Basic", href: "/docs/example/basic" }],
   },
   // {
   //   title: "API reference",

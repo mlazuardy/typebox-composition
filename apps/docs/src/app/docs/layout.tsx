@@ -2,6 +2,7 @@ import { Navigation } from "@/components/layouts/Navigation";
 import { docNavigation } from "@/constants/doc-navigation";
 import { Prose } from "./Prose";
 import { DocPagination } from "./DocPagination";
+import { TableOfContents } from "./TableOfContents";
 
 export default function Layout({ children }) {
   return (
@@ -21,6 +22,8 @@ export default function Layout({ children }) {
         </article>
         <DocPagination />
       </div>
+
+      <TableOfContents />
     </>
   );
 }
