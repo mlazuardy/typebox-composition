@@ -9,13 +9,20 @@ import { LangSelector } from "../common/LangSelector";
 import { useState } from "react";
 
 const schema = Type.Object({
-  firstName: Type.String({ minLength: 3, required: true, field: "name" }),
+  firstName: Type.String({
+    minLength: 3,
+    required: true,
+    field: {
+      en: "first name",
+      id: "nama depan",
+    },
+  }),
   lastName: Type.String({
     minLength: 3,
     required: true,
     field: {
       en: "last name",
-      id: "nama akhir",
+      id: "nama belakang",
     },
   }),
 });
@@ -40,13 +47,13 @@ export const ErrorMessageExample: React.FC = () => {
 
         <Card.Body className="space-y-4">
           <div>
-            <Label>First Name</Label>
+            <Label>{lang === "en" ? "First Name" : "Nama Depan"}</Label>
             <Input {...register("firstName")} />
             <FieldError {...registerError("firstName")} />
           </div>
 
           <div>
-            <Label>Last Name</Label>
+            <Label>{lang === "en" ? "Last Name" : "Nama Belakang"}</Label>
             <Input {...register("lastName")} />
             <FieldError {...registerError("lastName")} />
           </div>

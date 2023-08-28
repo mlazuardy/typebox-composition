@@ -54,11 +54,11 @@ export class TypeComposition {
       return undefined;
     }
 
-    if (typeof field !== "string") {
-      return field[this.getLang(lang)];
+    if (typeof field === "string") {
+      return field;
     }
 
-    return field;
+    return field[this.getLang(lang)];
   }
 
   private getCustomMessageKey(
