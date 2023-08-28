@@ -26,8 +26,13 @@ export default function RootLayout({
           "antialiased bg-white dark:bg-gray-950",
         )}
       >
-        <Script src="/js/theme.js" strategy="beforeInteractive" suppressHydrationWarning id="theme" />
-
+        {/* eslint-disable-next-line @next/next/no-before-interactive-script-outside-document */}
+        <Script
+          src="/js/theme.js"
+          strategy="beforeInteractive"
+          suppressHydrationWarning
+          id="theme"
+        />
         <Header />
         <div className="relative mx-auto flex max-w-8xl justify-center sm:px-2 lg:px-8 xl:px-12">
           <AppProvider>{children}</AppProvider>

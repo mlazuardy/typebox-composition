@@ -35,7 +35,7 @@ export function classNames(...args: any[]) {
     x: string,
     str = "";
   while (i < args.length) {
-    if ((tmp = arguments[i++])) {
+    if ((tmp = args[i++])) {
       if ((x = toVal(tmp))) {
         str && (str += " ");
         str += x;
