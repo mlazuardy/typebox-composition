@@ -1,36 +1,42 @@
 "use client";
 
-import { classNames } from "@/utils/classname";
 import { RadioGroup } from "@headlessui/react";
+import { classNames } from "@/utils/classname";
+
+const options = [
+  {
+    name: "English",
+    value: "en",
+  },
+  {
+    name: "Indonesia",
+    value: "id",
+  },
+];
 
 interface Props {
   onChange?: (val: any) => any;
-  options: {
-    name: string;
-    value: any;
-  }[];
-  className?: string;
   value?: any;
+  className?: string;
 }
 
-export const RadioOptions: React.FC<Props> = ({
+export const LangSelector: React.FC<Props> = ({
   onChange,
-  options,
   className,
-  value,
+  value = "en",
 }) => {
   return (
     <RadioGroup
       onChange={onChange}
       as="div"
-      className={className}
+      className={classNames(className, "flex space-x-2")}
       suppressHydrationWarning
       value={value}
     >
       {options.map((option) => (
         <RadioGroup.Option
           key={option.name}
-          value={option}
+          value={option.value}
           className={({ active, checked }) =>
             classNames(
               active && "ring-2 ring-indigo-600 ring-offset-2",

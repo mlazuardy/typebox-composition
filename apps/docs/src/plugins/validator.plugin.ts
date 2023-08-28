@@ -9,7 +9,7 @@ type MyResolverOptions = {
 
 export const validator = new TypeComposition({
   lang: "en",
-  // messages: validationMessages,
+  messages: validationMessages,
 });
 
 /**

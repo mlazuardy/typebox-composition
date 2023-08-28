@@ -21,3 +21,14 @@ export function isTypeOptional(options: any) {
 
   return false;
 }
+
+export function normalizeField(field: string) {
+  // convert field to snake case first
+  const snakeCaseValue = field
+    .replace(/\W+/g, " ")
+    .split(/ |\B(?=[A-Z])/)
+    .map((word) => word.toLowerCase())
+    .join("_");
+
+  return snakeCaseValue.replaceAll("_", " ");
+}

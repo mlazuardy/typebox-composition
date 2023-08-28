@@ -4,7 +4,7 @@ import { validator } from "../validator";
 
 describe("login", () => {
   const schema = Type.Object({
-    email: TypeEmail({ title: "email" }),
+    email: TypeEmail(),
     password: Type.String({ minLength: 8 }),
   });
 

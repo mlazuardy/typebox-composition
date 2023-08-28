@@ -27,10 +27,10 @@ export const docNavigation = [
       { title: "React Hook Form", href: "/docs/react/hook-form" },
     ],
   },
-  // {
-  //   title: "Example",
-  //   links: [{ title: "Basic", href: "/docs/example/basic" }],
-  // },
+  {
+    title: "Example",
+    links: [{ title: "Basic", href: "/docs/example/basic" }],
+  },
   // {
   //   title: "API reference",
   //   links: [

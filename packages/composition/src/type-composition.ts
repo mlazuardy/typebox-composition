@@ -7,7 +7,7 @@ import {
 } from "./interfaces";
 import { Value, ValueError } from "@sinclair/typebox/value";
 import { formatMessage, getErrorInfo } from "./errors";
-import { isObjectEmpty } from "./utils";
+import { isObjectEmpty, normalizeField } from "./utils";
 import { LocalMessage } from "./interfaces/message.interface";
 import en from "./locales/en";
 
@@ -49,6 +49,18 @@ export class TypeComposition {
     return this.getCurrentMessages(lang)?.[key];
   }
 
+  private getFieldValue(field: string | Record<string, string>, lang?: string) {
+    if (!field) {
+      return undefined;
+    }
+
+    if (typeof field !== "string") {
+      return field[this.getLang(lang)];
+    }
+
+    return field;
+  }
+
   private getCustomMessageKey(
     messageKey: string,
     messages: Record<string, LocalMessage>,
@@ -60,11 +72,10 @@ export class TypeComposition {
     return messageVal || this.getMessageValue(messageKey, lang);
   }
 
-  getErrorMessage(error: ValueError, lang?: string) {
+  private getErrorMessage(error: ValueError, lang?: string) {
     const kind = error.schema[Symbol.for("TypeBox.Kind") as any];
     const messages = this.messages[this.getLang(lang)];
     const field = error.path.replace("/", "").split("/").join(".");
-    const fieldOrTitle = error.schema.title || field;
     const { messageKey, expected, ...rest } = getErrorInfo(error);
     let messageVal = messages[messageKey];
 
@@ -84,6 +95,9 @@ export class TypeComposition {
       payload.message = error.message;
       // TODO: configured unsupported rule / type error
     } else {
+      const fieldOrTitle =
+        this.getFieldValue(error.schema.field, lang) || normalizeField(field);
+
       payload.message = formatMessage(messageVal, {
         field: fieldOrTitle,
         expected,

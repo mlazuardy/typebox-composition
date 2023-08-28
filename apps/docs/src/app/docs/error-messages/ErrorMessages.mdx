@@ -1,1 +1,119 @@
 # Error Messages
+
+Type Composition has built-in english (for now) error messages for each `Standard Type` [Located Here](https://github.com/mlazuardy/typebox-composition/packages/composition/src/locales/en.ts).
+
+## Modifying Error Messages
+To add or modify Error Messages, you can pass `messages` options inside your `TypeComposition` instance
+
+```ts
+new TypeboxComposition({
+  lang: "en",
+  messages: {
+    en: {}, // defined your english Error Messages here.
+  }
+})
+```
+
+> In the example above we defined error message inline, you may create error messages inside new file for each language.
+
+For now `messages` options does not merged automatically the Error Messages if you only insert partial messages on each language.
+For some cases you may want to only modify partial messages (for EN language) such as changing the `stringMin` only,
+you need to import our built-in `en` messages and merged it with your custom messages.
+
+```ts
+import en from "@typeb/composition/dist/locales/en";
+
+new TypeboxComposition({
+  lang: "en",
+  messages: {
+    en: {
+      ...en,
+      stringMin: "{field} must be at least {expected} characters."
+    }
+  }
+})
+```
+The `merged` example above also applied when you trying to add more language to the Error Messages.
+
+```ts
+import en from "@typeb/composition/dist/locales/en";
+
+new TypeboxComposition({
+  lang: "en",
+  messages: {
+    en,
+    // For indonesia
+    id: {
+      stringMin: "{field} minimal {expected} karakter.",
+      // ... rest of your error messages
+    }
+  }
+})
+```
+
+## A Note on Error Messages Value
+As you can see above we used `curly brace` / `{}` to identify the context of the validation message and parse it into a value.
+You can also use a function that accept context as an argument.
+
+```ts
+import en from "@typeb/composition/dist/locales/en";
+
+new TypeboxComposition({
+  lang: "en",
+  messages: {
+    en: {
+      ...en,
+      stringMin: ({ field, expected }) => {
+        return `${field} must be at least ${expected} characters.`
+      }
+    }
+  }
+})
+```
+
+## Per-Schema Messages
+You may customize per-schema error messages by passing `messages` options within `Standard Types`.
+
+```ts
+const schema = Type.Object({
+  name: Type.String({
+    maxLength: 50,
+    // add per-schema messages here
+    messages: {
+      // unlike `TypeComposition` instance, you dont need to add the whole error messages here
+      en: {
+        // you actually dont need {field}
+        stringMax: `your {field} is too long!!`
+      }
+    }
+  })
+})
+```
+
+## Modifying Field Value
+If you would like the `field` context to be replaced with a custom value,
+you may specify the custom field name by passing `field` inside `Standard Types` options.
+
+```ts
+const schema = Type.Object({
+  name: Type.String({
+    field: "full name",
+    maxLength: 50,
+  })
+})
+```
+
+`field` options accept `string` or `object`, if passing a string it will applied globally for all languages if your app has a dynamic i18n feature.
+Passing an object will map the `field` for each language.
+
+```ts
+const schema = Type.Object({
+  name: Type.String({
+    field: {
+      en: "full name",
+      id: "nama lengkap"
+    },
+    maxLength: 50,
+  })
+})
+```
