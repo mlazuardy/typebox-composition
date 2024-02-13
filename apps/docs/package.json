@@ -9,23 +9,23 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@headlessui/react": "^1.7.16",
-    "@heroicons/react": "^2.0.18",
-    "@mdx-js/loader": "^2.3.0",
-    "@mdx-js/react": "^2.3.0",
-    "@next/mdx": "^13.4.19",
-    "@sinclair/typebox": "^0.31.0",
-    "@typeb/composition": "*",
-    "@typeb/hook-form": "*",
-    "dayjs": "^1.11.9",
-    "jotai": "^2.3.1",
+    "@headlessui/react": "^1.7.18",
+    "@heroicons/react": "^2.1.1",
+    "@mdx-js/loader": "^3.0.1",
+    "@mdx-js/react": "^3.0.1",
+    "@next/mdx": "^14.1.0",
+    "@sinclair/typebox": "^0.32.14",
+    "@typeb/composition": "^0.2.0",
+    "@typeb/hook-form": "^0.2.0",
+    "dayjs": "^1.11.10",
+    "jotai": "^2.6.4",
     "js-cookie": "^3.0.5",
-    "next": "^13.4.19",
-    "prism-react-renderer": "^2.0.6",
+    "next": "^14.1.0",
+    "prism-react-renderer": "^2.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-hook-form": "^7.45.4",
-    "remark-gfm": "^3.0.1"
+    "react-hook-form": "^7.50.1",
+    "remark-gfm": "^4.0.0"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.7",
@@ -35,7 +35,7 @@
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19",
     "autoprefixer": "^10.4.17",
-    "eslint-config-next": "^13.5.6",
+    "eslint-config-next": "^14.1.0",
     "postcss": "^8.4.35",
     "tailwindcss": "^3.4.1"
   }
