@@ -3,4 +3,4 @@ export * from "./custom-types";
 export * from "./type-composition";
 export * from "./utils";
 export * from "./formats";
-export { t } from "./type-system";
+export { t, typeSystem } from "./type-system";
