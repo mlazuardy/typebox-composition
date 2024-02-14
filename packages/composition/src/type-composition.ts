@@ -1,4 +1,4 @@
-import { TSchema } from "@sinclair/typebox";
+import { type TSchema, TypeRegistry } from "@sinclair/typebox";
 import {
   ValidateOptions,
   ErrorMessage,
@@ -49,7 +49,10 @@ export class TypeComposition {
     return this.getCurrentMessages(lang)?.[key];
   }
 
-  private getFieldValue(field: string | Record<string, string>, lang?: string) {
+  private getFieldValue(
+    field?: string | Record<string, string>,
+    lang?: string,
+  ) {
     if (!field) {
       return undefined;
     }
