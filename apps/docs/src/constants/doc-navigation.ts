@@ -14,11 +14,8 @@ export const docNavigation = [
     ],
   },
   {
-    title: "Custom Types",
-    links: [
-      { title: "Overview", href: "/docs/custom-types" },
-      { title: "Creating Custom Types", href: "/docs/custom-types/creating" },
-    ],
+    title: "Extending",
+    links: [{ title: "Creating Custom Types", href: "/docs/custom-types" }],
   },
   {
     title: "React",

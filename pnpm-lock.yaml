@@ -69,10 +69,10 @@ importers:
         specifier: ^0.32.14
         version: 0.32.14
       '@typeb/composition':
-        specifier: ^0.2.0
+        specifier: workspace:*
         version: link:../../packages/composition
       '@typeb/hook-form':
-        specifier: ^0.2.0
+        specifier: workspace:*
         version: link:../../packages/hook-form
       dayjs:
         specifier: ^1.11.10

@@ -1,4 +1,4 @@
-import { type TSchema, TypeRegistry } from "@sinclair/typebox";
+import { type TSchema } from "@sinclair/typebox";
 import {
   ValidateOptions,
   ErrorMessage,
