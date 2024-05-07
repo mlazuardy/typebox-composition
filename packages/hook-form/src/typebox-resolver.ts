@@ -1,4 +1,4 @@
-import type { Static, TObject, TProperties } from "@sinclair/typebox";
+import { type Static, type TObject, type TProperties } from "@sinclair/typebox";
 import { TypeboxResolverOptions } from "./interfaces";
 import { SchemaError } from "@typeb/composition";
 import { Value } from "@sinclair/typebox/value";

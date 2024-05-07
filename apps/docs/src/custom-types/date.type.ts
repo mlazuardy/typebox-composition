@@ -1,8 +1,9 @@
 import { $date } from "@/plugins/date.plugin";
+import { type SchemaOptions } from "@sinclair/typebox";
 import { TypeSystem } from "@sinclair/typebox/system";
-import { CustomTypeOptions, isTypeOptional } from "@typeb/composition";
+import { isTypeOptional } from "@typeb/composition";
 
-interface DateOptions extends CustomTypeOptions {
+interface DateOptions extends SchemaOptions {
   format?: string;
 }
 

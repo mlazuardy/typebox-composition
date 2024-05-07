@@ -5,18 +5,20 @@ import { MacAddressExample } from "@/components/example/MacAddressExample";
 You can create your own custom types using `TypeSystem.Type` from typebox,
 
 ```ts
-import { TypeSystem } from "@sinclair/typebox/system";
+import { typeSystem } from "@typeb/composition";
 
 // Validate mac address
 const PATTERN = /^([0-9A-F]{2}[:-]){5}([0-9A-F]{2})$/;
 
-export const TypeMacAddress = TypeSystem.Type<string>(
+export const TypeMacAddress = typeSystem.Type<string>(
   "MacAddress",
   (options, value: any) => {
     return PATTERN.test(value);
   },
 );
 ```
+
+> YOU MUST IMPORT `typeSystem` from our package so our pre-defined custom types can be merged with yours.
 
 <MacAddressExample plain />
 
@@ -26,16 +28,12 @@ In order to format the message, you need to slightly modify the return value and
 if the validation failed, we can modify the `options` and add `errorInfo` just before we return a `true/false` value inside the Custom Type.
 
 ```ts
-import { TypeSystem } from "@sinclair/typebox/system";
-import { CustomTypeOptions } from "@typeb/composition";
+import { typeSystem } from "@typeb/composition";
 
 // Validate mac address
 const PATTERN = /^([0-9A-F]{2}[:-]){5}([0-9A-F]{2})$/;
 
-export const TypeMacAddress = TypeSystem.Type<
-  string,
-  CustomTypeOptions
->("MacAddress", (options = {}, value: any) => {
+export const TypeMacAddress = TypeSystem.Type<string>("MacAddress", (options = {}, value: any) => {
   const isValid = PATTERN.test(value);
 
   if (!isValid) {
@@ -71,15 +69,13 @@ If you need to skip the validation when your custom type is optiona, before vali
 You can use our `isTypeOptional` utility to check if your custom type is optional.
 
 ```ts
-import { TypeSystem } from "@sinclair/typebox/system";
-import { CustomTypeOptions, isTypeOptional } from "@typeb/composition";
+import { typeSystem, isTypeOptional } from "@typeb/composition";
 
 // Validate mac address
 const PATTERN = /^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$/;
 
-export const TypeMacAddress = TypeSystem.Type<
-  string,
-  CustomTypeOptions
+export const TypeMacAddress = typeSystem.Type<
+  string
 >("MacAddress", (options = {}, value: any) => {
   // internally typebox added `Typebox.Optional` symbol in the `options` so we can check it.
   if (isTypeOptional(options) && !value) {

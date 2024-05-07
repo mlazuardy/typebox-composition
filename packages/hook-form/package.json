@@ -28,7 +28,7 @@
   "peerDependencies": {
     "@typeb/composition": "^0.1.0",
     "react-hook-form": "^7.45.4",
-    "@sinclair/typebox": "^0.31.0"
+    "@sinclair/typebox": "^0.32.0"
   },
   "devDependencies": {
     "@typeb/composition": "*",
