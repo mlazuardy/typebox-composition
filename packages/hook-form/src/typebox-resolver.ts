@@ -1,50 +1,54 @@
-import { type Static, type TObject, type TProperties } from "@sinclair/typebox";
-import { TypeboxResolverOptions } from "./interfaces";
-import { SchemaError } from "@typeb/composition";
+import type { Static, Type } from "@sinclair/typebox";
 import { Value } from "@sinclair/typebox/value";
+import { type FieldError } from "react-hook-form";
+import type { TypeboxResolverOptions } from "./interfaces";
+import {
+  parseErrorSchema,
+  toNestErrors,
+  validateFieldsNatively,
+} from "./utils";
 
-function isObjectEmpty(data: Record<string, any>) {
-  return Object.keys(data).length === 0;
-}
+type FieldErrors = Record<string, FieldError>;
 
-export function typeboxResolver<T extends TProperties>(
-  schema: TObject<T>,
-  options: TypeboxResolverOptions<T>,
-) {
-  const validator = options.validator;
-  return (data: Static<typeof schema>) => {
+export const typeboxResolver =
+  <T extends ReturnType<typeof Type.Object>>(
+    schema: T,
+    options: TypeboxResolverOptions<T>,
+  ) =>
+  async (data: Static<typeof schema>, dontKnow: any, otherOptions: any) => {
+    const validator = options.validator;
     const convert = options?.convert || false;
 
     if (options?.beforeValidate) {
-      data = options.beforeValidate(data) as Static<typeof schema>;
+      data = options.beforeValidate(data as any) as Static<typeof schema>;
     }
 
     const { errors } = validator.validate(schema, data, options);
+    otherOptions.shouldUseNativeValidation &&
+      validateFieldsNatively({}, otherOptions);
 
-    if (errors.length) {
-      const mappedErrors: Record<string, SchemaError> = {};
+    if (!errors.length) {
+      const values = convert
+        ? (Value.Convert(schema, data) as any as Static<typeof schema>)
+        : data;
 
-      errors.forEach((error) => {
-        if (error.message) {
-          mappedErrors[error.field] = error as SchemaError;
-        }
-      });
-
-      if (!isObjectEmpty(mappedErrors)) {
-        return {
-          errors: mappedErrors,
-          values: {},
-        };
-      }
+      return {
+        values: values as Static<typeof schema>,
+        errors: {} as FieldErrors,
+      };
     }
 
-    const values = convert
-      ? (Value.Convert(schema, data) as any as Static<typeof schema>)
-      : data;
+    const mappedErrors = toNestErrors(
+      parseErrorSchema(
+        errors,
+        !otherOptions?.shouldUseNativeValidation &&
+          otherOptions?.criteriaMode === "all",
+      ),
+      otherOptions,
+    );
 
     return {
-      values,
-      errors: {},
+      errors: mappedErrors as unknown as FieldErrors,
+      values: {} as Static<typeof schema>,
     };
   };
-}
