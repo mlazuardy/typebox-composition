@@ -2,3 +2,5 @@ node_modules
 dist
 .env
 DEV_CHANGELOG.md
+.nx
+nx-cloud.env

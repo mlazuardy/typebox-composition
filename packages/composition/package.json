@@ -22,15 +22,22 @@
     "access": "public"
   },
   "scripts": {
-    "build": "tsc",
-    "build:clean": "rimraf ./dist && tsc",
-    "dev": "tsc --watch",
-    "test": "jest --config ./tests/jest.config.js"
+    "dev": "tsup --watch",
+    "build": "tsup",
+    "test": "jest --config ./tests/jest.config.js",
+    "lint:check": "eslint './src/**/*.{ts,tsx}' && tsc --noEmit"
   },
   "peerDependencies": {
-    "@sinclair/typebox": "^0.31.0"
+    "@sinclair/typebox": "^0.32.0"
   },
   "devDependencies": {
-    "rimraf": "^5.0.1"
+    "@typescript-eslint/eslint-plugin": "^7.8.0",
+    "@typescript-eslint/parser": "^7.8.0",
+    "rimraf": "^5.0.1",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.5"
   }
 }

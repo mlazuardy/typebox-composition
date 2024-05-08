@@ -1,10 +1,10 @@
 import { getTitle } from "@/shared/shared-metadata";
-import CustomTypeOverview from "./CustomTypeOverview.mdx";
+import CreatingCustomTypes from "./CreatingCustomTypes.mdx";
 
 export const metadata = {
-  title: getTitle("Custom Types"),
+  title: getTitle("Creating Custom Types"),
 };
 
 export default function Page() {
-  return <CustomTypeOverview />;
+  return <CreatingCustomTypes />;
 }

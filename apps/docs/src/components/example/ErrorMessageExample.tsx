@@ -2,14 +2,14 @@
 
 import { useForm } from "@/hooks/useForm";
 import { myResolver } from "@/plugins/validator.plugin";
-import { Type } from "@sinclair/typebox";
 import { Button, Card, Input, Label } from "../ui";
 import { FieldError } from "../error/FieldError";
 import { LangSelector } from "../common/LangSelector";
 import { useState } from "react";
+import { t } from "@typeb/composition";
 
-const schema = Type.Object({
-  firstName: Type.String({
+const schema = t.Object({
+  firstName: t.String({
     minLength: 3,
     required: true,
     field: {
@@ -17,7 +17,7 @@ const schema = Type.Object({
       id: "nama depan",
     },
   }),
-  lastName: Type.String({
+  lastName: t.String({
     minLength: 3,
     required: true,
     field: {
@@ -25,6 +25,7 @@ const schema = Type.Object({
       id: "nama belakang",
     },
   }),
+  email: t.Email(),
 });
 
 export const ErrorMessageExample: React.FC = () => {
@@ -56,6 +57,12 @@ export const ErrorMessageExample: React.FC = () => {
             <Label>{lang === "en" ? "Last Name" : "Nama Belakang"}</Label>
             <Input {...register("lastName")} />
             <FieldError {...registerError("lastName")} />
+          </div>
+
+          <div>
+            <Label>Email</Label>
+            <Input {...register("email")} />
+            <FieldError {...registerError("email")} />
           </div>
 
           <div>

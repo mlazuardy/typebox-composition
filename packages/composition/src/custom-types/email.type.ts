@@ -1,11 +1,11 @@
-import { TypeSystem } from "@sinclair/typebox/system";
+import { typeSystem } from "../type-system";
 import { isTypeOptional } from "../utils";
-import type { CustomTypeOptions } from "../interfaces/custom-type.interface";
+import { type SchemaOptions } from "@sinclair/typebox";
 
 const EMAIL_PATTERN =
-  /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
-export const TypeEmail = TypeSystem.Type<string, CustomTypeOptions>(
+export const TypeEmail = typeSystem.Type<string, SchemaOptions>(
   "Email",
   (options, value) => {
     const input = value as string;
