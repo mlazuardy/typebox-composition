@@ -9,7 +9,7 @@ import { Value, ValueError } from "@sinclair/typebox/value";
 import { formatMessage, getErrorInfo } from "./errors";
 import { isObjectEmpty, normalizeField } from "./utils";
 import { LocalMessage } from "./interfaces/message.interface";
-import en from "./locales/en";
+import { en } from "./locales";
 
 export class TypeComposition {
   private lang = "en";

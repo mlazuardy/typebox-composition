@@ -33,7 +33,7 @@ import { typeSystem } from "@typeb/composition";
 // Validate mac address
 const PATTERN = /^([0-9A-F]{2}[:-]){5}([0-9A-F]{2})$/;
 
-export const TypeMacAddress = TypeSystem.Type<string>("MacAddress", (options = {}, value: any) => {
+export const TypeMacAddress = typeSystem.Type<string>("MacAddress", (options = {}, value: any) => {
   const isValid = PATTERN.test(value);
 
   if (!isValid) {

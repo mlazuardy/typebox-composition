@@ -1,5 +1,4 @@
-import { TypeComposition } from "../src";
-import en from "../src/locales/en";
+import { TypeComposition, en } from "../src";
 
 export const validator = new TypeComposition({
   lang: "en",
