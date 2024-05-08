@@ -2,3 +2,4 @@ node_modules
 dist
 .env
 DEV_CHANGELOG.md
+.nx
