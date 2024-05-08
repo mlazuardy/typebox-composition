@@ -21,9 +21,8 @@
     "access": "public"
   },
   "scripts": {
-    "dev": "tsc --watch",
-    "build": "tsc",
-    "build:clean": "rimraf ./dist && tsc"
+    "dev": "tsup --watch",
+    "build": "tsup"
   },
   "peerDependencies": {
     "@typeb/composition": "^0.1.0",
