@@ -26,4 +26,4 @@ const messages: LocalMessage = {
   objectId: "the {field} field must be a valid object id.",
 };
 
-export default messages;
+export const en = messages;
