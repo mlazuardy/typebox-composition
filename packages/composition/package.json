@@ -24,7 +24,7 @@
   "scripts": {
     "dev": "tsup --watch",
     "build": "tsup",
-    "test": "vitest",
+    "test": "vitest run",
     "lint:check": "eslint './src/**/*.{ts,tsx}' && tsc --noEmit"
   },
   "peerDependencies": {
