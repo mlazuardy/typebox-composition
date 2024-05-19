@@ -12,15 +12,15 @@ import { isObjectEmpty, normalizeField } from "./utils";
 import { en } from "./locales";
 
 export class TypeComposition {
-  private lang = "en";
-  private messages: Record<string, Record<string, ErrorMessage>>;
+  lang = "en";
+  messages: Record<string, Record<string, ErrorMessage>>;
 
   constructor(options: TypeCompositionOptions) {
     this.lang = options.lang;
     this.messages = options.messages || { en };
   }
 
-  private getLang(lang?: string) {
+  getLang(lang?: string) {
     return lang || this.lang;
   }
 
