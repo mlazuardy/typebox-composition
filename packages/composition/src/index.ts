@@ -1,4 +1,4 @@
-export * from "./interfaces";
+export * from "./types";
 export * from "./custom-types";
 export * from "./type-composition";
 export * from "./utils";

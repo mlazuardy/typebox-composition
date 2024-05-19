@@ -1,5 +1,5 @@
 import { SchemaOptions, TUnsafe, Type } from "@sinclair/typebox";
-import type { ErrorInfo } from "./interfaces";
+import type { ErrorInfo } from "./types";
 import { TypeEmail } from "./custom-types";
 import { TypeSystem } from "@sinclair/typebox/system";
 

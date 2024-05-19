@@ -1,4 +1,4 @@
-import type { ErrorMessage } from "./error.interface";
+import type { ErrorMessage } from "./error.type";
 
 export interface TypeCompositionOptions {
   /** default and/or fallback language, can still be configured on the fly when using validate method */

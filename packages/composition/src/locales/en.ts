@@ -1,6 +1,6 @@
-import { LocalMessage } from "../interfaces/message.interface";
+import { LocaleMessage } from "../types/message.type";
 
-const messages: LocalMessage = {
+export const en: LocaleMessage = {
   required: "the {field} field is required.",
 
   arrayMin: "the {field} field must be more or equal to {expected} items.",
@@ -25,5 +25,3 @@ const messages: LocalMessage = {
 
   objectId: "the {field} field must be a valid object id.",
 };
-
-export const en = messages;
