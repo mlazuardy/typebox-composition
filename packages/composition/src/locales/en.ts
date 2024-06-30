@@ -1,29 +1,42 @@
-import { LocalMessage } from "../interfaces/message.interface";
+import { ValueErrorType } from "@sinclair/typebox/errors";
+import type { ErrorParams, ErrorRecord } from "../errors/error.type";
+import type { NumberOptions } from "@sinclair/typebox";
+type NumError = ErrorParams<NumberOptions>;
 
-const messages: LocalMessage = {
-  required: "the {field} field is required.",
-
-  arrayMin: "the {field} field must be more or equal to {expected} items.",
-  arrayMax: "the {field} field must be less or equal to {expected} items.",
-
-  boolean: "the {field} must be true or false.",
-
-  email: "the {field} field must be a valid email.",
-
-  enum: "the {field} field is invalid.",
-
-  string: "the {field} field must be a string",
-  stringEmpty: "the {field} field is required.",
-  stringMin:
-    "the {field} field must be greater or equal to {expected} characters.",
-  stringMax:
-    "the {field} field must be less or equal to {expected} characters.",
-
-  number: "the {field} field must be a valid number",
-  numberMin: "the {field} field must be greater or equal to {expected}",
-  numberMax: "the {field} field must be less or equal to {expected}",
-
-  objectId: "the {field} field must be a valid object id.",
+export const en: ErrorRecord = {
+  [ValueErrorType.ObjectRequiredProperty]: ({ label }) => {
+    return `the ${label} is required.`;
+  },
+  [ValueErrorType.String]: ({ label }) => {
+    return `the ${label} must be a string.`;
+  },
+  [ValueErrorType.StringMinLength]: ({ schema, label }) => {
+    return `the ${label} must be at least ${schema.minLength} characters.`;
+  },
+  [ValueErrorType.StringMaxLength]: ({ schema, label }) => {
+    return `the ${label} must be less or equal to ${schema.minLength} characters.`;
+  },
+  [ValueErrorType.Number]: ({ label }) => {
+    return `the ${label} must be a number`;
+  },
+  [ValueErrorType.NumberMinimum]: ({ label, schema }: NumError) => {
+    return `the ${label} must be at least ${schema.minimum}.`;
+  },
+  [ValueErrorType.NumberMaximum]: ({ label, schema }: NumError) => {
+    return `the ${label} must be less or equal to ${schema.maximum}.`;
+  },
+  StringAlphadash: ({ label }) =>
+    `the ${label} must be a string of alphabets, numeric, and/or dash.`,
+  Email: ({ label }) => {
+    return `the ${label} must be a valid email.`;
+  },
+  Numerable: ({ label }) => {
+    return `the ${label} must be numerable value.`;
+  },
+  StringNumberFormat: ({ label }) => {
+    return `${label} must be a valid number.`;
+  },
+  Phone: ({ label }) => {
+    return `invalid ${label} .`;
+  },
 };
-
-export const en = messages;

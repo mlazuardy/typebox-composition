@@ -29,6 +29,7 @@ export function myResolver<T extends TProperties>(
 ) {
   return typeboxResolver(schema, {
     ...options,
+    /** @ts-ignore */
     validator,
   });
 }
@@ -39,6 +40,7 @@ export function myPlainResolver<T extends TProperties>(
 ) {
   return typeboxResolver(schema, {
     ...options,
+    /** @ts-ignore */
     validator: plainValidator,
   });
 }
