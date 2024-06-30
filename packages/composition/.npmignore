@@ -4,3 +4,6 @@ tests
 index.ts
 pnpm-lock.yaml
 tsconfig.json
+tsup.config.ts
+vitest.config.ts
+tsconfig.build.json
