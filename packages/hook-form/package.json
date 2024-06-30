@@ -1,6 +1,6 @@
 {
   "name": "@typeb/hook-form",
-  "version": "0.2.1",
+  "version": "1.0.0",
   "description": "React hook form resolver for typebox",
   "author": "Michael Lazuardy",
   "lisence": "MIT",
@@ -26,7 +26,7 @@
   },
   "peerDependencies": {
     "@sinclair/typebox": "^0.32.34",
-    "@typeb/composition": "^0.2.1",
+    "@typeb/composition": "^1.0.0",
     "react-hook-form": "^7.45.4"
   },
   "devDependencies": {
