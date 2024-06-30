@@ -1,4 +1,4 @@
-import { en } from "@typeb/composition/dist"
+import { en } from "@typeb/composition";
 
 export const validationMessages = {
   en: {

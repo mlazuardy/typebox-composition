@@ -1,2 +1,2 @@
-export * from "./email.type";
-export * from "./object-id.type";
+export * from "./email";
+export * from "./object-id";

@@ -1,6 +1,6 @@
 import { ValueError, ValueErrorType } from "@sinclair/typebox/errors";
 import { ERROR_TYPE } from "../constants/error-type.constant";
-import type { ErrorInfo, ErrorMessage } from "../interfaces";
+import type { ErrorInfo, ErrorMessage } from "../types";
 import { isEmptyOrNull } from "../utils";
 
 export function getErrorInfo(error: ValueError): ErrorInfo {

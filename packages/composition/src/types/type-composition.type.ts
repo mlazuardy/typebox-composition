@@ -1,4 +1,4 @@
-import type { ErrorMessage } from "./error.interface";
+import { LocaleMessage } from "./message.type";
 
 export interface TypeCompositionOptions {
   /** default and/or fallback language, can still be configured on the fly when using validate method */
@@ -14,7 +14,7 @@ export interface TypeCompositionOptions {
    *  },
    * }
    */
-  messages?: Record<string, Record<string, ErrorMessage>>;
+  messages?: Record<string, LocaleMessage>;
 }
 
 export interface ValidateOptions {

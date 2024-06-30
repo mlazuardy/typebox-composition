@@ -4,23 +4,23 @@ import {
   ErrorMessage,
   TypeCompositionOptions,
   SchemaError,
-} from "./interfaces";
+  LocaleMessage,
+} from "./types";
 import { Value, ValueError } from "@sinclair/typebox/value";
 import { formatMessage, getErrorInfo } from "./errors";
 import { isObjectEmpty, normalizeField } from "./utils";
-import { LocalMessage } from "./interfaces/message.interface";
 import { en } from "./locales";
 
 export class TypeComposition {
-  private lang = "en";
-  private messages: Record<string, Record<string, ErrorMessage>>;
+  lang = "en";
+  messages: Record<string, Record<string, ErrorMessage>>;
 
   constructor(options: TypeCompositionOptions) {
     this.lang = options.lang;
     this.messages = options.messages || { en };
   }
 
-  private getLang(lang?: string) {
+  getLang(lang?: string) {
     return lang || this.lang;
   }
 
@@ -66,7 +66,7 @@ export class TypeComposition {
 
   private getCustomMessageKey(
     messageKey: string,
-    messages: Record<string, LocalMessage>,
+    messages: Record<string, LocaleMessage>,
     lang?: string,
   ) {
     const fixedLang = this.getLang(lang);
