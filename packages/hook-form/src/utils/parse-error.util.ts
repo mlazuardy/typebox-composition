@@ -1,9 +1,8 @@
-import { ValueErrorType } from "@sinclair/typebox/errors";
-import type { SchemaError } from "@typeb/composition";
+import { ValueError, ValueErrorType } from "@sinclair/typebox/errors";
 import { FieldError, appendErrors } from "react-hook-form";
 
 export const parseErrorSchema = (
-  _errors: SchemaError[],
+  _errors: ValueError[],
   validateAllFieldCriteria: boolean,
 ) => {
   const errors: Record<string, FieldError> = {};
