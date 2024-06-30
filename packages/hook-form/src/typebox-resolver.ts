@@ -6,6 +6,7 @@ import {
   validateFieldsNatively,
 } from "./utils";
 import { Resolver } from "./types";
+import { sanitizeIncomingValue } from "@typeb/composition";
 
 type FieldErrors = Record<string, FieldError>;
 

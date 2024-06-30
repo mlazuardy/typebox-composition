@@ -168,7 +168,7 @@ importers:
         version: 0.32.34
       '@typeb/composition':
         specifier: workspace:*
-        version: 0.2.0(@sinclair/typebox@0.32.34)
+        version: link:../composition
       '@types/react':
         specifier: ^18.2.18
         version: 18.2.18
@@ -870,11 +870,6 @@ packages:
 
   '@tsconfig/node16@1.0.4':
     resolution: {integrity: sha512-vxhUy4J8lyeyinH7Azl1pdd43GJhZH/tP2weN8TntQblOY+A0XbT8DJk1/oCPuOOyg/Ja757rG0CgHcWC8OfMA==}
-
-  '@typeb/composition@0.2.0':
-    resolution: {integrity: sha512-m6FRGZOhsmFLSzV1ylgXSlhWNW9wrl9GtUPGUx7QfNEnf8Y989KW2jyu1J8bqZrtrsRMqc9P9BT2p2FbMNieWg==}
-    peerDependencies:
-      '@sinclair/typebox': ^0.31.0
 
   '@types/acorn@4.0.6':
     resolution: {integrity: sha512-veQTnWP+1D/xbxVrPC3zHnCZRjSrKfhbMUlEA43iMZLu7EsnTtkJklIuwrCPbOi8YkvDQAiW05VQQFvvz9oieQ==}
@@ -4279,10 +4274,6 @@ snapshots:
   '@tsconfig/node14@1.0.3': {}
 
   '@tsconfig/node16@1.0.4': {}
-
-  '@typeb/composition@0.2.0(@sinclair/typebox@0.32.34)':
-    dependencies:
-      '@sinclair/typebox': 0.32.34
 
   '@types/acorn@4.0.6':
     dependencies:
