@@ -11,8 +11,8 @@ import { sanitizeIncomingValue } from "@typeb/composition";
 type FieldErrors = Record<string, FieldError>;
 
 export const typeboxResolver: Resolver =
-  (schema) => async (values, _, resolverOptions) => {
-    const data = resolverOptions.skipSanitize
+  (schema, options) => async (values, _, resolverOptions) => {
+    const data = options?.skipSanitize
       ? values
       : sanitizeIncomingValue(values);
     const errors = Array.from(Value.Errors(schema, data));

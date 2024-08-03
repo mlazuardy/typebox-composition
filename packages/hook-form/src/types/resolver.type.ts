@@ -8,8 +8,9 @@ export type ExtraResolverOptions = {
 
 export type Resolver = <T extends ReturnType<typeof Type.Object>>(
   schema: T,
+  options?: ExtraResolverOptions,
 ) => (
   values: Static<typeof schema>,
   context: any | undefined,
-  options: ResolverOptions<Static<typeof schema>> & ExtraResolverOptions,
+  options: ResolverOptions<Static<typeof schema>>,
 ) => Promise<ResolverResult<Static<typeof schema>>>;
