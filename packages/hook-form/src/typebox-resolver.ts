@@ -12,7 +12,9 @@ type FieldErrors = Record<string, FieldError>;
 
 export const typeboxResolver: Resolver =
   (schema) => async (values, _, resolverOptions) => {
-    const data = sanitizeIncomingValue(values);
+    const data = resolverOptions.skipSanitize
+      ? values
+      : sanitizeIncomingValue(values);
     const errors = Array.from(Value.Errors(schema, data));
 
     resolverOptions.shouldUseNativeValidation &&
