@@ -25,12 +25,12 @@
     "build": "tsup"
   },
   "peerDependencies": {
-    "@sinclair/typebox": "^0.32.34",
+    "@sinclair/typebox": "^0.33.7",
     "@typeb/composition": "^1.0.0",
     "react-hook-form": "^7.45.4"
   },
   "devDependencies": {
-    "@sinclair/typebox": "^0.32.34",
+    "@sinclair/typebox": "^0.33.7",
     "@typeb/composition": "workspace:*",
     "@types/react": "^18.2.18",
     "react": "^18.2.0",
